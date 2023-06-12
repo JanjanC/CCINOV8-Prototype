@@ -1,11 +1,13 @@
 const dotenv = require('dotenv');
 const express = require('express');
+const bodyParser = require(`body-parser`);
 const path = require('path');
 const mysql = require('mysql2');
 
 dotenv.config();
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const connection = mysql.createConnection(process.env.DATABASE_URL);
 
@@ -79,6 +81,6 @@ app.post('/signup/renter', function (req, res) {
     });
 });
 
-let listener = app.listen(process.env.PORT || 3000, process.env.HOSTNAME, function () {
-    console.log(`Server running at http://${listener.address().address}:${listener.address().port}`);
+let listener = app.listen(process.env.PORT || 3000, function () {
+    console.log(`Server running at port ${listener.address().port}`);
 });
