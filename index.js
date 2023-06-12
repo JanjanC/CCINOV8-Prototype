@@ -3,11 +3,13 @@ const express = require('express');
 const bodyParser = require(`body-parser`);
 const path = require('path');
 const mysql = require('mysql2');
+const requestIp = require('request-ip');
 
 dotenv.config();
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(requestIp.mw());
 
 const connection = mysql.createConnection(process.env.DATABASE_URL);
 
@@ -17,7 +19,7 @@ app.use(express.static(path.join(__dirname, '/assets')));
 app.get('/', function (req, res) {
     // save user event
     let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
-    let params = [req.socket.remoteAddress, 'Landing Page'];
+    let params = [req.clientIp, 'Landing Page'];
     connection.execute(query, params, function (err, results) {
         console.log(results);
     });
@@ -28,7 +30,7 @@ app.get('/', function (req, res) {
 app.get('/signup/rentee', function (req, res) {
     // save user event
     let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
-    let params = [req.socket.remoteAddress, 'Parking Owner Sign Up'];
+    let params = [req.clientIp, 'Parking Owner Sign Up'];
     connection.execute(query, params, function (err, results) {
         console.log(results);
     });
@@ -39,7 +41,7 @@ app.get('/signup/rentee', function (req, res) {
 app.get('/signup/renter', function (req, res) {
     // save user event
     let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
-    let params = [req.socket.remoteAddress, 'Driver Sign Up'];
+    let params = [req.clientIp, 'Driver Sign Up'];
     connection.execute(query, params, function (err, results) {
         console.log(results);
     });
@@ -55,13 +57,13 @@ app.get('/success', function (req, res) {
 app.post('/signup/rentee', function (req, res) {
     // save user event
     let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
-    let params = [req.socket.remoteAddress, 'Parking Owner Sign Up'];
+    let params = [req.clientIp, 'Parking Owner Sign Up'];
     connection.execute(query, params, function (err, results) {
         console.log(results);
     });
 
     query = 'INSERT INTO registration (ip_address, email, type) VALUES (?, ?, ?)';
-    params = [req.socket.remoteAddress, req.body.email, 'Parking Owner'];
+    params = [req.clientIp, req.body.email, 'Parking Owner'];
     connection.execute(query, params, function (err, results) {
         res.redirect('/success');
     });
@@ -69,13 +71,13 @@ app.post('/signup/rentee', function (req, res) {
 
 app.post('/signup/renter', function (req, res) {
     let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
-    let params = [req.socket.remoteAddress, 'Parking Owner Sign Up'];
+    let params = [req.clientIp, 'Parking Owner Sign Up'];
     connection.execute(query, params, function (err, results) {
         console.log(results);
     });
 
     query = 'INSERT INTO registration (ip_address, email, type) VALUES (?, ?, ?)';
-    params = [req.socket.remoteAddress, req.body.email, 'Driver'];
+    params = [req.clientIp, req.body.email, 'Driver'];
     connection.execute(query, params, function (err, results) {
         res.redirect('/success');
     });
