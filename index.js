@@ -30,7 +30,7 @@ app.get('/', function (req, res) {
 app.get('/signup/rentee', function (req, res) {
     // save user event
     let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
-    let params = [req.clientIp, 'Parking Owner Sign Up'];
+    let params = [req.clientIp, 'Parking Owner Sign Up Page'];
     connection.execute(query, params, function (err, results) {
         console.log(results);
     });
@@ -41,7 +41,7 @@ app.get('/signup/rentee', function (req, res) {
 app.get('/signup/renter', function (req, res) {
     // save user event
     let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
-    let params = [req.clientIp, 'Driver Sign Up'];
+    let params = [req.clientIp, 'Driver Sign Up Page'];
     connection.execute(query, params, function (err, results) {
         console.log(results);
     });
@@ -57,13 +57,13 @@ app.get('/success', function (req, res) {
 app.post('/signup/rentee', function (req, res) {
     // save user event
     let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
-    let params = [req.clientIp, 'Parking Owner Sign Up'];
+    let params = [req.clientIp, 'Parking Owner Sign Up Successful'];
     connection.execute(query, params, function (err, results) {
         console.log(results);
     });
 
-    query = 'INSERT INTO registration (ip_address, email, type) VALUES (?, ?, ?)';
-    params = [req.clientIp, req.body.email, 'Parking Owner'];
+    query = 'INSERT INTO registration (ip_address, name, birthdate, email, contact, type) VALUES (?, ?, ?, ?, ?, ?)';
+    params = [req.clientIp, req.body.name, req.body.birthdate, req.body.email, req.body.contact, 'Parking Owner'];
     connection.execute(query, params, function (err, results) {
         res.redirect('/success');
     });
@@ -71,13 +71,13 @@ app.post('/signup/rentee', function (req, res) {
 
 app.post('/signup/renter', function (req, res) {
     let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
-    let params = [req.clientIp, 'Parking Owner Sign Up'];
+    let params = [req.clientIp, 'Driver Sign Up Successful'];
     connection.execute(query, params, function (err, results) {
         console.log(results);
     });
 
-    query = 'INSERT INTO registration (ip_address, email, type) VALUES (?, ?, ?)';
-    params = [req.clientIp, req.body.email, 'Driver'];
+    query = 'INSERT INTO registration (ip_address, name, birthdate, email, contact, type) VALUES (?, ?, ?, ?, ?, ?)';
+    params = [req.clientIp, req.body.name, req.body.birthdate, req.body.email, req.body.contact, 'Driver'];
     connection.execute(query, params, function (err, results) {
         res.redirect('/success');
     });
