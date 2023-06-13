@@ -1,0 +1,16 @@
+body {
+    padding-top: 4.5rem;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+.rounded-div {
+    background-color: white;
+    border-radius: 10px; /* Adjust the value to control the roundness of the corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 50px;
+}
+.featurette {
+    min-height: 50vmin; /* Adjust the percentage value as desired */
+}

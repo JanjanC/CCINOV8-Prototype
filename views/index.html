@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="styles/index.css" />
         <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" href="lib/font-awesome/css/all.css" />
+        <link rel="stylesheet" href="styles/styles.css" />
         <script type="text/javascript" src="lib/popper/popper.js"></script>
         <script type="text/javascript" src="lib/jquery/jquery-3.6.0.js"></script>
         <script type="text/javascript" src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -11,6 +12,81 @@
         <title>Parkify</title>
     </head>
 
-    <a href="/signup/renter" class="btn btn-primary">SIGN UP (Driver)</a>
-    <a href="/signup/rentee" class="btn btn-primary">SIGN UP (Owner)</a>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+            <a class="navbar-brand" href="#">Parkify</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#signup">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row featurette" id="intro">
+                <div class="col-md-6 my-auto">
+                    <img src="images/car-parking.png" style="object-fit: scale-down" />
+                </div>
+                <div class="col-md-6 my-auto">
+                    <h2 class="featurette-heading">FIND A PARKING SPOT <br/><span class="text-primary">WITH EASE</span></h2>
+                    <p class="lead">Having trouble finding where to park your car? Willing to rent out your parking space to others? We got you covered.</p>
+                    <div class="btn-group">
+                        <a href="#about" class="btn btn-primary mr-4">Learn More</a>
+                        <a href="#signup" class="btn btn-primary">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="featurette-divider" />
+
+            <div class="row featurette" id="about">
+                <div class="col-md-6 my-auto">
+                    <h2 class="featurette-heading">WHAT DO WE DO?</h2>
+                    <p class="lead">Our product is designed to help private vehicle owners to find parking spaces that are being rented out by parking space owners within the Philippines.</p>
+                </div>
+                <div class="col-md-3 rounded-div my-auto d-flex flex-column align-items-center">
+                    <img src="images/ease-of-access.png" />
+                    <p class="text-center">EASE OF ACCESS</p>
+                </div>
+                <div class="col-md-3 rounded-div my-auto d-flex flex-column align-items-center"">
+                    <img src="images/less-time-wasted.png" />
+                    <p class="text-center">LESS TIME WASTED</p>
+                </div>
+            </div>
+
+            <hr class="featurette-divider" />
+
+            <div class="row featurette" id="about">
+                <div class="col-md-6 my-auto">
+                    <img src="images/drivers.png"  />
+                </div>
+                <div class="col-md-6 my-auto">
+                    <h2 class="featurette-heading">WANT TO START<br><span class="text-primary">BOOKING?</span></h2>
+                    <p class="lead">Follow our step by step process to learn how to book a parking space.</p>
+                    <a href="/signup/renter" class="btn btn-primary">Sign Up</a>
+                </div>
+            </div>
+
+            <hr class="featurette-divider" />
+
+            <div class="row featurette" id="about">
+                <div class="col-md-6 my-auto">
+                    <h2 class="featurette-heading">WILLING TO RENT OUT YOUR<br><span class="text-primary">PARKING SPACE?</span></h2>
+                    <p class="lead">Follow our step by step process to learn more on how to rent out your parking space.</p>
+                    <a href="/signup/rentee" class="btn btn-primary">Sign Up</a>
+                </div>
+                <div class="col-md-6 my-auto">
+                    <img src="images/parking-space-owners.png"  />
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
