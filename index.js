@@ -13,7 +13,7 @@ app.use(requestIp.mw());
 
 const connection = mysql.createConnection(process.env.DATABASE_URL);
 
-app.use(express.static(path.join(__dirname, '/assets')));
+app.use(express.static(path.join(__dirname, 'assets')));
 
 // GET Requests
 app.get('/', function (req, res) {
