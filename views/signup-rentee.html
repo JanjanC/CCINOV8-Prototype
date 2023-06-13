@@ -12,13 +12,57 @@
         <title>Parkify | Sign Up</title>
     </head>
 
-    <h1>Renter</h1>
-    <form action="/signup/rentee" method="POST">
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" placeholder="Enter Email" id="email" name="email" />
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+        <a class="navbar-brand" href="/"> <img src="/images/logo.png" style="width: 25px" /> PARKIFY </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/#sign-u">SIGN UP</a>
+                </li>
+            </ul>
         </div>
+    </nav>
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="rounded-box p-4">
+                <h2 class="text-center">Rent a Parking Space</h2>
+                <div class="row">
+                    <form class="col-6 my-auto" action="/signup/rentee" method="POST">
+                        <div class="form-group d-flex flex-row align-items-center">
+                            <i class="fa fa-lg fa-user mr-4"></i>
+                            <input type="name" class="form-control" name="name" placeholder="Full Name" required="required" />
+                        </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+                        <div class="form-group d-flex flex-row align-items-center">
+                            <i class="fa fa-lg fa-cake-candles mr-4"></i>
+                            <input type="date" class="form-control" name="birthdate" placeholder="Date of Birth" required="required" />
+                        </div>
+
+                        <div class="form-group d-flex flex-row align-items-center">
+                            <i class="fa fa-lg fa-envelope mr-4"></i>
+                            <input type="email" class="form-control" name="email" placeholder="Email Address" required="required" />
+                        </div>
+
+                        <div class="form-group d-flex flex-row align-items-center">
+                            <i class="fa fa-lg fa-phone mr-4"></i>
+                            <input type="tel" class="form-control" name="contact" placeholder="Contact Number" required="required" />
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">SIGN UP</button>
+                        </div>
+                    </form>
+                    <div class="col-6">
+                        <img src="/images/drivers.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </html>

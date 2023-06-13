@@ -1,16 +1,17 @@
+html,
+body {
+    height: 100%;
+}
+
 body {
     padding-top: 4.5rem;
 }
+
 img {
     width: 100%;
     height: auto;
 }
-/* .rounded-div {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    padding: 50px;
-} */
+
 .featurette {
     min-height: 50vmin;
 }
@@ -26,4 +27,10 @@ img {
 
 .text-primary {
     color: #003cec !important;
+}
+
+.rounded-box {
+    border-radius: 10px;
+    /* border: 0.5px solid gray; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
