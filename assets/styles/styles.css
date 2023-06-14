@@ -50,6 +50,30 @@ img {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+.signup-modal-div {
+    min-height: 30vh;
+    min-width: 30vh;
+}
+
+.signup-modal-link {
+    border-color: rgba(0, 0, 0, 0.1);
+    border-style: dashed;
+    border-radius: 20px;
+    border-width: 2px;
+    color: #003cec;
+}
+
+.signup-modal-link:hover {
+    background-color: #003cec;
+    color: white;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.modal-content {
+    border-radius: 25px;
+}
+
 #about,
 #signup-rentee {
     background-color: rgba(27, 127, 246, 0.05);

@@ -34,7 +34,8 @@
                     <a class="nav-link" href="#about">ABOUT</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#signup-renter">SIGN UP</a>
+                    <a class="nav-link" href="#intro" data-toggle="modal" data-target="#signup-modal">SIGN
+                        UP</a>
                 </li>
             </ul>
         </div>
@@ -52,7 +53,30 @@
                     others? We got you covered.</p>
                 <div>
                     <a href="#about" class="btn btn-primary btn-rounded mr-4">LEARN MORE</a>
-                    <a href="#signup-renter" class="btn btn-outline-primary mr-4">SIGN UP</a>
+                    <button href="#signup-renter" class="btn btn-outline-primary mr-4" data-toggle="modal"
+                        data-target="#signup-modal">SIGN UP</button>
+                    <!--Sign up Modal-->
+                    <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog"
+                        aria-labelledby="Sign Up Modal" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="row d-flex justify-content-around p-5">
+                                        <a class="signup-modal-link col-5 d-flex flex-column justify-content-center align-items-center signup-modal-div text-center"
+                                            href="/signup/renter">
+                                            <i class="fa fa-car h1" aria-hidden="true"></i>
+                                            <h3>Are you a driver?</h3>
+                                        </a>
+                                        <a class="signup-modal-link col-5 d-flex flex-column justify-content-center align-items-center signup-modal-div text-center"
+                                            href="/signup/rentee">
+                                            <i class="fa fa-home h1" aria-hidden="true"></i>
+                                            <h3>Do you own a parking space?</h3>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
