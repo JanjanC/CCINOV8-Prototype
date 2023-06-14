@@ -24,6 +24,18 @@ img {
     border-color: #003cec;
 }
 
+.btn-outline-primary {
+    border-color: #003cec;
+    color: #003cec;
+}
+
+.btn-outline-primary:hover,
+.btn-primary:hover {
+    background-color: #003cec;
+    border-color: #003cec;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
 .bg-primary {
     background-color: #003cec !important;
 }
