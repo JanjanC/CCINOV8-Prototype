@@ -49,3 +49,9 @@ img {
     /* border: 0.5px solid gray; */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+#about,
+#signup-rentee {
+    background-color: rgba(27, 127, 246, 0.05);
+    border-radius: 25px;
+}
