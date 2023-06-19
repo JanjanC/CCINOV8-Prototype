@@ -49,6 +49,10 @@ app.get('/signup/renter', function (req, res) {
     res.sendFile(path.join(__dirname, 'views', 'signup-renter.html'));
 });
 
+app.get('/signup/rentee/parking', function (req, res) {
+    res.sendFile(path.join(__dirname, 'views', 'signup-parking-space.html'));
+});
+
 app.get('/success', function (req, res) {
     res.sendFile(path.join(__dirname, 'views', 'success.html'));
 });
@@ -65,7 +69,7 @@ app.post('/signup/rentee', function (req, res) {
     query = 'INSERT INTO registration (ip_address, name, birthdate, email, contact, type) VALUES (?, ?, ?, ?, ?, ?)';
     params = [req.clientIp, req.body.name, req.body.birthdate, req.body.email, req.body.contact, 'Parking Owner'];
     connection.execute(query, params, function (err, results) {
-        res.redirect('/success');
+        res.redirect('/signup/rentee/parking/details');
     });
 });
 
