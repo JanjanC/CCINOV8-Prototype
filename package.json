@@ -12,6 +12,10 @@
     "body-parser": "^1.20.2",
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
+    "express-mysql-session": "^3.0.0",
+    "express-session": "^1.17.3",
+    "express-useragent": "^1.0.15",
+    "hbs": "^4.2.0",
     "mysql2": "^3.3.4",
     "request-ip": "^3.3.0"
   }
