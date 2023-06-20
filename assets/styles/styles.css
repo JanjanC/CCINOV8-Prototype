@@ -51,13 +51,13 @@ img {
 }
 
 .signup-modal-div {
-    min-height: 30vh;
-    min-width: 30vh;
+    min-height: 30vmin;
+    min-width: 30vmin;
 }
 
 .signup-modal-link {
     border-color: rgba(0, 0, 0, 0.1);
-    border-style: dashed;
+    border-style: solid;
     border-radius: 20px;
     border-width: 2px;
     color: #003cec;
