@@ -105,23 +105,39 @@ app.post('/signup/rentee', function (req, res) {
 });
 
 app.get('/signup/rentee/parking', function (req, res) {
-    const percent = [3, 5, 7];
-    console.log('SESSION ID');
-    console.log(req.session.user_id);
-    console.log(req.session.user_id.slice(-1));
-    index = parseInt(req.session.user_id.slice(-1), 16) % 3;
+    if (req.session.user_id == null) {
+        res.redirect('/error');
+    }
 
-    res.render('signup-parking-space', { percent: percent[index] });
+    let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
+    let params = [req.clientIp, 'Parking Owner Parking Information Page'];
+    connection.execute(query, params, function (err, results) {
+        console.log(results);
+    });
+
+    const percents = [3, 5, 7];
+    let index = parseInt(req.session.user_id.slice(-2), 16) % 3;
+
+    query = 'INSERT INTO experiment_info (user_id, ip_address, price) VALUES (?, ?, ?)';
+    params = [req.session.user_id, req.clientIp, percents[index]];
+    connection.execute(query, params, function (err, results) {
+        console.log(results);
+    });
+
+    res.render('signup-parking-space', { percent: percents[index] });
 });
 
 app.post('/signup/rentee/parking', function (req, res) {
-    console.log(req.body);
-    query = 'INSERT INTO parking_info (user_id, ip_address, number, location, time_start, time_end, price) VALUES (?, ?, ?, ?, ?, ?, ?)';
-    const UUID = crypto.randomUUID();
-    params = [UUID, req.clientIp, req.body.name, req.body.birthdate, req.body.email, req.body.contact, 'Parking Owner'];
+    let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
+    let params = [req.clientIp, 'Parking Owner Parking Information Successful'];
     connection.execute(query, params, function (err, results) {
         console.log(results);
-        req.session.user_id = UUID;
+    });
+
+    query = 'INSERT INTO parking_info (user_id, ip_address, number, type, location, time_start, time_end, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    params = [req.session.user_id, req.clientIp, req.body.count, req.body.type, req.body.location, req.body.time_start, req.body.time_end, req.body.price];
+    connection.execute(query, params, function (err, results) {
+        console.log(results);
         res.redirect('/success');
     });
 });
