@@ -30,7 +30,7 @@ app.use(
 
 app.use(express.static(path.join(__dirname, 'assets')));
 
-// GET Requests
+// Landing Page
 app.get('/', function (req, res) {
     // save user event
     let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
@@ -42,17 +42,7 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
-app.get('/signup/rentee', function (req, res) {
-    // save user event
-    let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
-    let params = [req.clientIp, 'Parking Owner Sign Up Page'];
-    connection.execute(query, params, function (err, results) {
-        console.log(results);
-    });
-
-    res.sendFile(path.join(__dirname, 'views', 'signup-rentee.html'));
-});
-
+//Driver Signup
 app.get('/signup/renter', function (req, res) {
     // save user event
     let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
@@ -64,12 +54,36 @@ app.get('/signup/renter', function (req, res) {
     res.sendFile(path.join(__dirname, 'views', 'signup-renter.html'));
 });
 
-app.get('/signup/rentee/parking', function (req, res) {
-    res.sendFile(path.join(__dirname, 'views', 'signup-parking-space.html'));
+app.post('/signup/renter', function (req, res) {
+    let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
+    let params = [req.clientIp, 'Driver Sign Up Successful'];
+    connection.execute(query, params, function (err, results) {
+        console.log(results);
+    });
+
+    query = 'INSERT INTO registration (user_id, ip_address, name, birthdate, email, contact, type) VALUES (?, ?, ?, ?, ?, ?, ?)';
+    const UUID = crypto.randomUUID();
+    params = [UUID, req.clientIp, req.body.name, req.body.birthdate, req.body.email, req.body.contact, 'Driver'];
+    connection.execute(query, params, function (err, results) {
+        req.session.user_id = UUID;
+        res.redirect('/success');
+    });
 });
 
-app.get('/success', function (req, res) {
-    res.sendFile(path.join(__dirname, 'views', 'success.html'));
+//Parking Owner Sign Up
+app.get('/signup/rentee', function (req, res) {
+    // save user event
+    let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
+    let params = [req.clientIp, 'Parking Owner Sign Up Page'];
+    connection.execute(query, params, function (err, results) {
+        console.log(results);
+    });
+
+    res.sendFile(path.join(__dirname, 'views', 'signup-rentee.html'));
+});
+
+app.get('/signup/rentee/parking', function (req, res) {
+    res.sendFile(path.join(__dirname, 'views', 'signup-parking-space.html'));
 });
 
 // POST Requests
@@ -91,20 +105,17 @@ app.post('/signup/rentee', function (req, res) {
     });
 });
 
-app.post('/signup/renter', function (req, res) {
-    let query = 'INSERT INTO logs (ip_address, event) VALUES (?, ?)';
-    let params = [req.clientIp, 'Driver Sign Up Successful'];
-    connection.execute(query, params, function (err, results) {
-        console.log(results);
-    });
+//Sucess and Error Pages
+app.get('/success', function (req, res) {
+    if (req.session.user_id) {
+        res.sendFile(path.join(__dirname, 'views', 'success.html'));
+    } else {
+        res.redirect('error');
+    }
+});
 
-    query = 'INSERT INTO registration (user_id, ip_address, name, birthdate, email, contact, type) VALUES (?, ?, ?, ?, ?, ?, ?)';
-    const UUID = crypto.randomUUID();
-    params = [UUID, req.clientIp, req.body.name, req.body.birthdate, req.body.email, req.body.contact, 'Driver'];
-    connection.execute(query, params, function (err, results) {
-        req.session.user_id = UUID;
-        res.redirect('/success');
-    });
+app.get('/error', function (req, res) {
+    res.sendFile(path.join(__dirname, 'views', 'error.html'));
 });
 
 let listener = app.listen(process.env.PORT || 3000, function () {
