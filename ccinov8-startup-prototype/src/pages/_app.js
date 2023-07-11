@@ -1,8 +1,12 @@
-import '../styles/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
+import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
+    useEffect(() => {
+        import('bootstrap/dist/js/bootstrap.min');
+    }, []);
+
     return <Component {...pageProps} />;
 }
 

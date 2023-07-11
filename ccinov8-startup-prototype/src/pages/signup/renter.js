@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faCakeCandles, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+
 export default function Renter() {
     return (
         <>
@@ -8,22 +11,22 @@ export default function Renter() {
                         <div className="row">
                             <form className="col-6 my-auto" action="/signup/renter" method="POST">
                                 <div className="form-group d-flex flex-row align-items-center">
-                                    <i className="fa fa-lg fa-user mr-4"></i>
+                                    <FontAwesomeIcon icon={faUser} className="fa fa-lg mr-4" />
                                     <input type="text" className="form-control" name="name" placeholder="Full Name" required="required" />
                                 </div>
 
                                 <div className="form-group d-flex flex-row align-items-center">
-                                    <i className="fa fa-lg fa-birthday-cake mr-4"></i>
+                                    <FontAwesomeIcon icon={faCakeCandles} className="fa fa-lg mr-4" />
                                     <input type="date" className="form-control" name="birthdate" placeholder="Date of Birth" required="required" />
                                 </div>
 
                                 <div className="form-group d-flex flex-row align-items-center">
-                                    <i className="fa fa-lg fa-envelope mr-4"></i>
+                                    <FontAwesomeIcon icon={faEnvelope} className="fa fa-lg mr-4" />
                                     <input type="email" className="form-control" name="email" placeholder="Email Address" required="required" />
                                 </div>
 
                                 <div className="form-group d-flex flex-row align-items-center">
-                                    <i className="fa fa-lg fa-phone mr-4"></i>
+                                    <FontAwesomeIcon icon={faPhone} className="fa fa-lg mr-4" />
                                     <input type="tel" className="form-control" name="contact" placeholder="Contact Number" required="required" />
                                 </div>
 
