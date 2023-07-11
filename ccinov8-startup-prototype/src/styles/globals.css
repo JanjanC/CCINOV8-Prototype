@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html,
+body {
+    height: 100%;
+    font-family: Jost;
+}
+
+body {
+    padding-top: 4.5rem;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.featurette {
+    min-height: 50vmin;
+}
+
+.btn-primary {
+    background-color: #003cec;
+    border-color: #003cec;
+}
+
+.btn-outline-primary {
+    border-color: #003cec;
+    color: #003cec;
+}
+
+.btn-outline-primary:hover,
+.btn-primary:hover {
+    background-color: #003cec;
+    border-color: #003cec;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.bg-primary {
+    background-color: #003cec !important;
+}
+
+.text-primary {
+    color: #003cec !important;
+}
+
+.rounded-box {
+    border-radius: 10px;
+    /* border: 0.5px solid gray; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.signup-modal-div {
+    min-height: 30vmin;
+    min-width: 30vmin;
+}
+
+.signup-modal-link {
+    border-color: rgba(0, 0, 0, 0.1);
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    color: #003cec;
+}
+
+.signup-modal-link:hover {
+    background-color: #003cec;
+    color: white;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.modal-content {
+    border-radius: 25px;
+}
+
+.modal-icon {
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+#logo {
+    width: 25px;
+}
+
+#about,
+#signup-rentee {
+    background-color: rgba(27, 127, 246, 0.05);
+    border-radius: 25px;
+}
