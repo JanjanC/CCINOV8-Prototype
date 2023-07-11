@@ -1,14 +1,9 @@
 import '../styles/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import '../styles/globals.css';
-import Layout from '@/components/Layout';
 
 function MyApp({ Component, pageProps }) {
-    return (
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
-    );
+    return <Component {...pageProps} />;
 }
 
 export default MyApp;
