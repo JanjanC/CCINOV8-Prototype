@@ -2,7 +2,7 @@ export default function Home() {
     return (
         <>
             <div className="container">
-                <div className="row featurette px-5" id="intro">
+                <div className="row featurette px-5 mt-5" id="intro">
                     <div className="col-md-6 my-auto">
                         <img src="/images/car-parking.png" />
                     </div>
