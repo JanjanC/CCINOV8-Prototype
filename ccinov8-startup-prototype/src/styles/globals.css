@@ -6,6 +6,11 @@ body {
     font-family: Jost;
 }
 
+#__next {
+    position: absolute;
+    inset: 0;
+}
+
 body {
     padding-top: 4.5rem;
 }
@@ -77,6 +82,11 @@ img {
 .modal-icon {
     font-size: 2rem;
     line-height: 1.5;
+}
+
+.fa.fa-lg {
+    font-size: 1.3em;
+    width: 25px !important;
 }
 
 #logo {
