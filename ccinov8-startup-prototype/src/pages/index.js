@@ -40,7 +40,7 @@ export default function Home() {
                             <a href="#about" className="btn btn-primary btn-rounded mr-4">
                                 LEARN MORE
                             </a>
-                            <button href="#signup-renter" className="btn btn-outline-primary mr-4" data-toggle="modal" data-target="#signup-modal">
+                            <button href="signup-renter" className="btn btn-outline-primary mr-4" data-toggle="modal" data-target="#signup-modal">
                                 PREREGISTER
                             </button>
                             <div className="modal fade" id="signup-modal" tabIndex="-1" role="dialog" aria-labelledby="Sign Up Modal" aria-hidden="true">
@@ -48,7 +48,7 @@ export default function Home() {
                                     <div className="modal-content">
                                         <div className="modal-body">
                                             <div className="row d-flex justify-content-around p-5">
-                                                <a className="signup-modal-link col-5 d-flex flex-column justify-content-center align-items-center signup-modal-div text-center" href="#signup/renter">
+                                                <a className="signup-modal-link col-5 d-flex flex-column justify-content-center align-items-center signup-modal-div text-center" href="signup/renter">
                                                     <i className="fa fa-car modal-icon" aria-hidden="true"></i>
                                                     <p>I WANT TO LOOK FOR A PARKING SPACE</p>
                                                 </a>
@@ -95,7 +95,7 @@ export default function Home() {
                             <span className="text-primary">BOOKING?</span>
                         </h2>
                         <p className="lead">Follow our step by step process to learn how to book a parking space.</p>
-                        <a href="#signup/renter" className="btn btn-primary">
+                        <a href="signup/renter" className="btn btn-primary">
                             GET STARTED
                         </a>
                     </div>
