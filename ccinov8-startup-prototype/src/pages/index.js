@@ -52,7 +52,7 @@ export default function Home() {
                                                     <i className="fa fa-car modal-icon" aria-hidden="true"></i>
                                                     <p>I WANT TO LOOK FOR A PARKING SPACE</p>
                                                 </a>
-                                                <a className="signup-modal-link col-5 d-flex flex-column justify-content-center align-items-center signup-modal-div text-center" href="#signup/rentee">
+                                                <a className="signup-modal-link col-5 d-flex flex-column justify-content-center align-items-center signup-modal-div text-center" href="signup/rentee">
                                                     <i className="fa fa-home modal-icon" aria-hidden="true"></i>
                                                     <p>I WANT TO RENT OUT MY PARKING SPACE</p>
                                                 </a>
@@ -111,7 +111,7 @@ export default function Home() {
                             <span className="text-primary">PARKING SPACE?</span>
                         </h2>
                         <p className="lead">Follow our step by step process to learn more on how to rent out your parking space.</p>
-                        <a href="#signup/rentee" className="btn btn-primary">
+                        <a href="signup/rentee" className="btn btn-primary">
                             GET STARTED
                         </a>
                     </div>
