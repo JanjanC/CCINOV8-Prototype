@@ -20,7 +20,7 @@ const Navbar = () => {
                         {/* <Link className="nav-link" href="/#intro" data-toggle="modal" data-target="#signup-modal">
                             PREREGISTER
                         </Link> */}
-                        <Link className="nav-link" href="/#signup-renter">
+                        <Link className="nav-link" href="/#signup-driver">
                             PREREGISTER
                         </Link>
                     </li>

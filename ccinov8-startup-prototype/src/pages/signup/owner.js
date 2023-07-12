@@ -1,7 +1,7 @@
 import PreregisterForm from '@/components/preregister-form';
 import useLog from '@/hooks/useLog';
 
-export default function Rentee() {
+export default function Owner() {
     useLog('Parking Owner Sign Up Page');
 
     return (
@@ -13,7 +13,7 @@ export default function Rentee() {
                         <div className="row">
                             <PreregisterForm
                                 type="Parking Owner"
-                                redirectType="renter"
+                                redirectType="driver"
                                 redirectMessage="WANT TO LOOK FOR PARKING SPACES INSTEAD?"
                             ></PreregisterForm>
 

@@ -14,14 +14,14 @@ export default function Home() {
                             <div className="row d-flex justify-content-around p-5">
                                 <Link
                                     className="signup-modal-link col-5 d-flex flex-column justify-content-center align-items-center signup-modal-div text-center"
-                                    href="/signup/renter"
+                                    href="/signup/driver"
                                 >
                                     <i className="fa fa-car modal-icon" aria-hidden="true"></i>
                                     <p>I WANT TO LOOK FOR A PARKING SPACE</p>
                                 </Link>
                                 <Link
                                     className="signup-modal-link col-5 d-flex flex-column justify-content-center align-items-center signup-modal-div text-center"
-                                    href="/signup/rentee"
+                                    href="/signup/owner"
                                 >
                                     <i className="fa fa-home modal-icon" aria-hidden="true"></i>
                                     <p>I WANT TO RENT OUT MY PARKING SPACE</p>
@@ -50,7 +50,7 @@ export default function Home() {
                             <Link href="#about" className="btn btn-primary btn-rounded mr-4">
                                 LEARN MORE
                             </Link>
-                            <Link href="#signup-renter" className="btn btn-primary btn-rounded mr-4">
+                            <Link href="#signup-driver" className="btn btn-primary btn-rounded mr-4">
                                 PREREGISTER
                             </Link>
 
@@ -84,7 +84,7 @@ export default function Home() {
 
                 <hr className="featurette-divider" />
 
-                <div className="row featurette px-5" id="signup-renter">
+                <div className="row featurette px-5" id="signup-driver">
                     <div className="col-md-6 my-auto">
                         <img src="/images/drivers.png" />
                     </div>
@@ -95,7 +95,7 @@ export default function Home() {
                             <span className="text-primary">BOOKING?</span>
                         </h2>
                         <p className="lead">Follow our step by step process to learn how to book a parking space.</p>
-                        <Link href="/signup/renter" className="btn btn-primary">
+                        <Link href="/signup/driver" className="btn btn-primary">
                             GET STARTED
                         </Link>
                     </div>
@@ -103,7 +103,7 @@ export default function Home() {
 
                 <hr className="featurette-divider" />
 
-                <div className="row featurette px-5" id="signup-rentee">
+                <div className="row featurette px-5" id="signup-owner">
                     <div className="col-md-6 my-auto">
                         <h2 className="featurette-heading">
                             WILLING TO RENT OUT YOUR
@@ -113,7 +113,7 @@ export default function Home() {
                         <p className="lead">
                             Follow our step by step process to learn more on how to rent out your parking space.
                         </p>
-                        <Link href="/signup/rentee" className="btn btn-primary">
+                        <Link href="/signup/owner" className="btn btn-primary">
                             GET STARTED
                         </Link>
                     </div>

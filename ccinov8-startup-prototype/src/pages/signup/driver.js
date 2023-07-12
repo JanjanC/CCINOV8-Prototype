@@ -1,7 +1,7 @@
 import PreregisterForm from '@/components/preregister-form';
 import useLog from '@/hooks/useLog';
 
-export default function Renter() {
+export default function Driver() {
     useLog('Driver Sign Up Page');
 
     return (
@@ -13,7 +13,7 @@ export default function Renter() {
                         <div className="row">
                             <PreregisterForm
                                 type="Driver"
-                                redirectType="rentee"
+                                redirectType="owner"
                                 redirectMessage="WANT TO RENT OUT YOUR PARKING SPACES INSTEAD?"
                             ></PreregisterForm>
 
