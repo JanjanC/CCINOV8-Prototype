@@ -1,10 +1,10 @@
 const Error = () => {
     return (
-        <div class="container h-100">
-            <div class="row h-100 justify-content-center align-items-center">
-                <div class="text-center">
+        <div className="container h-100">
+            <div className="row h-100 justify-content-center align-items-center">
+                <div className="text-center">
                     <h4>PAGE NOT FOUND</h4>
-                    <a href="/" class="btn btn-primary">
+                    <a href="/" className="btn btn-primary">
                         RETURN HOME
                     </a>
                 </div>
