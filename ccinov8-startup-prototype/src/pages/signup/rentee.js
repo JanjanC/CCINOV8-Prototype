@@ -9,7 +9,8 @@ export default function Rentee() {
                         <h2 className="text-center py-4">RENT OUT YOUR PARKING SPACE</h2>
                         <div className="row">
                             <PreregisterForm
-                                signUpType="renter"
+                                signUpType="rentee"
+                                redirectType="renter"
                                 redirectMessage="WANT TO LOOK FOR PARKING SPACES INSTEAD?"
                             ></PreregisterForm>
 

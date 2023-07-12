@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 const PreregisterForm = (props) => {
     const signUpType = props.signUpType;
+    const redirectType = props.redirectType;
     const redirectMessage = props.redirectMessage;
 
     const router = useRouter();
@@ -85,7 +86,7 @@ const PreregisterForm = (props) => {
                 <button type="submit" className="btn btn-primary btn-block mb-2">
                     PREREGISTER
                 </button>
-                <Link href={`../signup/${signUpType}`}> {redirectMessage} </Link>
+                <Link href={`../signup/${redirectType}`}> {redirectMessage} </Link>
             </div>
         </form>
     );
