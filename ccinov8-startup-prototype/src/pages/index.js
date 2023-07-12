@@ -6,7 +6,8 @@ export default function Home() {
 
     return (
         <>
-            <div className="modal fade" id="signup-modal" tabIndex="-1" role="dialog">
+            {/* modal temporarily commented out since it doesn't seem to work with Link */}
+            {/* <div className="modal fade" id="signup-modal" tabIndex="-1" role="dialog">
                 <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
                     <div className="modal-content">
                         <div className="modal-body">
@@ -29,7 +30,7 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             <div className="container">
                 <div className="row featurette px-5 mt-5" id="intro">
@@ -49,9 +50,14 @@ export default function Home() {
                             <Link href="#about" className="btn btn-primary btn-rounded mr-4">
                                 LEARN MORE
                             </Link>
-                            <button className="btn btn-outline-primary mr-4" data-toggle="modal" data-target="#signup-modal">
+                            <Link href="#signup-renter" className="btn btn-primary btn-rounded mr-4">
                                 PREREGISTER
-                            </button>
+                            </Link>
+
+                            {/* button for modal */}
+                            {/* <button className="btn btn-outline-primary mr-4" data-toggle="modal" data-target="#signup-modal">
+                                PREREGISTER
+                            </button> */}
                         </div>
                     </div>
                 </div>
