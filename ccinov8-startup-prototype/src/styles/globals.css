@@ -93,8 +93,7 @@ img {
     width: 25px;
 }
 
-#about,
-#signup-owner {
+.featurette:nth-of-type(even) {
     background-color: rgba(27, 127, 246, 0.05);
     border-radius: 25px;
 }

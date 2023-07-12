@@ -50,7 +50,7 @@ export default function Home() {
                             <Link href="#about" className="btn btn-primary btn-rounded mr-4">
                                 LEARN MORE
                             </Link>
-                            <Link href="#signup-driver" className="btn btn-primary btn-rounded mr-4">
+                            <Link href="#signup-owner" className="btn btn-primary btn-rounded mr-4">
                                 PREREGISTER
                             </Link>
 
@@ -84,26 +84,10 @@ export default function Home() {
 
                 <hr className="featurette-divider" />
 
-                <div className="row featurette px-5" id="signup-driver">
-                    <div className="col-md-6 my-auto">
-                        <img src="/images/drivers.png" />
-                    </div>
-                    <div className="col-md-6 my-auto">
-                        <h2 className="featurette-heading">
-                            WANT TO START
-                            <br />
-                            <span className="text-primary">BOOKING?</span>
-                        </h2>
-                        <p className="lead">Follow our step by step process to learn how to book a parking space.</p>
-                        <Link href="/signup/driver" className="btn btn-primary">
-                            GET STARTED
-                        </Link>
-                    </div>
-                </div>
-
-                <hr className="featurette-divider" />
-
                 <div className="row featurette px-5" id="signup-owner">
+                    <div className="col-md-6 my-auto">
+                        <img src="images/parking-space-owners.png" />
+                    </div>
                     <div className="col-md-6 my-auto">
                         <h2 className="featurette-heading">
                             WILLING TO RENT OUT YOUR
@@ -117,9 +101,26 @@ export default function Home() {
                             GET STARTED
                         </Link>
                     </div>
-                    <div className="col-md-6 my-auto">
-                        <img src="images/parking-space-owners.png" />
-                    </div>
+                </div>
+            </div>
+
+            <hr className="featurette-divider" />
+
+            <div className="row featurette px-5" id="signup-driver">
+                <div className="col-md-6 my-auto">
+                    <h2 className="featurette-heading">
+                        WANT TO START
+                        <br />
+                        <span className="text-primary">BOOKING?</span>
+                    </h2>
+                    <p className="lead">Follow our step by step process to learn how to book a parking space.</p>
+                    <Link href="/signup/driver" className="btn btn-primary">
+                        GET STARTED
+                    </Link>
+                </div>
+
+                <div className="col-md-6 my-auto">
+                    <img src="/images/drivers.png" />
                 </div>
             </div>
         </>
