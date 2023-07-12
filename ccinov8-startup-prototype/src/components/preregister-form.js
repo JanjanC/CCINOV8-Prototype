@@ -22,6 +22,7 @@ const PreregisterForm = (props) => {
 
         fetch('/api/preregister', {
             method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user),
         }).then(() => {
             router.push('/success');
@@ -86,7 +87,7 @@ const PreregisterForm = (props) => {
                 <button type="submit" className="btn btn-primary btn-block mb-2">
                     PREREGISTER
                 </button>
-                <Link href={`../signup/${redirectType}`}> {redirectMessage} </Link>
+                <Link href={`/signup/${redirectType}`}> {redirectMessage} </Link>
             </div>
         </form>
     );
