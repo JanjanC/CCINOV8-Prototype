@@ -24,8 +24,12 @@ const PreregisterForm = (props) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user),
-        }).then(() => {
-            router.push('/success');
+        }).then((res) => {
+            if (res.ok) {
+                router.push('/success');
+            } else {
+                router.push('/error');
+            }
         });
     };
 

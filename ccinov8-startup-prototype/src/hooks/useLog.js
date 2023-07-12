@@ -7,7 +7,9 @@ const useLog = (event) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ event }),
         }).then((res) => {
-            console.log(res);
+            if (!res.ok) {
+                console.log('Logging Failed');
+            }
         });
     }, []);
 };
