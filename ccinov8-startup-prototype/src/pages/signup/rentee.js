@@ -1,6 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faCakeCandles, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
 import PreregisterForm from '@/components/preregister-form';
 
 export default function Rentee() {
@@ -11,7 +8,10 @@ export default function Rentee() {
                     <div className="rounded-box p-4">
                         <h2 className="text-center py-4">RENT OUT YOUR PARKING SPACE</h2>
                         <div className="row">
-                            <PreregisterForm signUpType="renter" redirectMessage="WANT TO LOOK FOR PARKING SPACES INSTEAD?"></PreregisterForm>
+                            <PreregisterForm
+                                signUpType="renter"
+                                redirectMessage="WANT TO LOOK FOR PARKING SPACES INSTEAD?"
+                            ></PreregisterForm>
 
                             <div className="col-6">
                                 <img src="/images/parking-space-owners.png" />
