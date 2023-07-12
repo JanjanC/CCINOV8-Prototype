@@ -1,6 +1,9 @@
 import PreregisterForm from '@/components/preregister-form';
+import useLog from '@/hooks/useLog';
 
 export default function Rentee() {
+    useLog('Parking Owner Sign Up Page');
+
     return (
         <>
             <div className="container h-100">

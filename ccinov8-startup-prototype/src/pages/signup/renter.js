@@ -1,6 +1,9 @@
 import PreregisterForm from '@/components/preregister-form';
+import useLog from '@/hooks/useLog';
 
 export default function Renter() {
+    useLog('Driver Sign Up Page');
+
     return (
         <>
             <div className="container h-100">
