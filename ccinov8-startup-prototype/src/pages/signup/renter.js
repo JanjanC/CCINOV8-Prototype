@@ -9,10 +9,11 @@ export default function Renter() {
                         <h2 className="text-center py-4">LOOK FOR A PARKING SPACE</h2>
                         <div className="row">
                             <PreregisterForm
-                                signUpType="renter"
+                                type="Driver"
                                 redirectType="rentee"
                                 redirectMessage="WANT TO RENT OUT YOUR PARKING SPACES INSTEAD?"
                             ></PreregisterForm>
+
                             <div className="col-6">
                                 <img src="/images/drivers.png" />
                             </div>

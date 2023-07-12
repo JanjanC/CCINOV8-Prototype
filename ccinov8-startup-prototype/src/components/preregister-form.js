@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 const PreregisterForm = (props) => {
-    const signUpType = props.signUpType;
+    const type = props.type;
     const redirectType = props.redirectType;
     const redirectMessage = props.redirectMessage;
 
@@ -18,8 +18,8 @@ const PreregisterForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const user = { name, birthdate, email, contact, signUpType };
-        console.log(user);
+        const user = { name, birthdate, email, contact, type };
+
         fetch('/api/preregister', {
             method: 'POST',
             body: JSON.stringify(user),
