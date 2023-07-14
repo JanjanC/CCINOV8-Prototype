@@ -6,6 +6,8 @@ import useLog from '@/hooks/useLog';
 export default function ParkingSpace() {
     useLog('Rent Parking Space Page');
 
+    const router = useRouter();
+
     const [parkingSpaceCount, setParkingSpaceCount] = useState('');
     const parkingNatureOptions = ['Residential', 'Commercial', 'Residential or Commercial'];
     const [parkingNature, setParkingNature] = useState(parkingNatureOptions[0]);
@@ -16,6 +18,19 @@ export default function ParkingSpace() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const parkingSpace = { count, type, location, time_start, time_end, price };
+
+        fetch('/api/parking-space', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(parkingSpace),
+        }).then((res) => {
+            if (res.ok) {
+                router.push('/success');
+            } else {
+                router.push('/error');
+            }
+        });
     };
 
     return (
@@ -25,7 +40,7 @@ export default function ParkingSpace() {
                     <div class="rounded-box p-4">
                         <h2 class="text-center py-4">PARKING SPACE INFORMATION</h2>
                         <div class="row">
-                            <form class="col-6 my-auto" action="/signup/rentee/parking" method="POST">
+                            <form class="col-6 my-auto" onSubmit={handleSubmit}>
                                 <div class="form-group d-flex flex-row align-items-center">
                                     <label class="control-label col-5" for="count">
                                         No. of Parking Spaces:
@@ -33,7 +48,7 @@ export default function ParkingSpace() {
                                     <input
                                         type="number"
                                         class="form-control"
-                                        name="count"
+                                        name="number"
                                         placeholder="Number of Parking Spaces"
                                         value={parkingSpaceCount}
                                         required="required"
