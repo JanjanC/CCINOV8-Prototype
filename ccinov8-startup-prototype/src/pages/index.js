@@ -102,25 +102,24 @@ export default function Home() {
                         </Link>
                     </div>
                 </div>
-            </div>
+                <hr className="featurette-divider" />
 
-            <hr className="featurette-divider" />
+                <div className="row featurette px-5" id="signup-driver">
+                    <div className="col-md-6 my-auto">
+                        <h2 className="featurette-heading">
+                            WANT TO START
+                            <br />
+                            <span className="text-primary">BOOKING?</span>
+                        </h2>
+                        <p className="lead">Follow our step by step process to learn how to book a parking space.</p>
+                        <Link href="/signup/driver" className="btn btn-primary">
+                            GET STARTED
+                        </Link>
+                    </div>
 
-            <div className="row featurette px-5" id="signup-driver">
-                <div className="col-md-6 my-auto">
-                    <h2 className="featurette-heading">
-                        WANT TO START
-                        <br />
-                        <span className="text-primary">BOOKING?</span>
-                    </h2>
-                    <p className="lead">Follow our step by step process to learn how to book a parking space.</p>
-                    <Link href="/signup/driver" className="btn btn-primary">
-                        GET STARTED
-                    </Link>
-                </div>
-
-                <div className="col-md-6 my-auto">
-                    <img src="/images/drivers.png" />
+                    <div className="col-md-6 my-auto">
+                        <img src="/images/drivers.png" />
+                    </div>
                 </div>
             </div>
         </>
