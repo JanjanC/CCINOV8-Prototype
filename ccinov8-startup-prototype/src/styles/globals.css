@@ -103,3 +103,10 @@ img {
     background-color: rgba(27, 127, 246, 0.05);
     border-radius: 25px;
 }
+
+.filepond--root,
+.filepond--root .filepond--drop-label {
+    width: 30em;
+    /* width: 75vmin; */
+    /* height: auto; */
+}
