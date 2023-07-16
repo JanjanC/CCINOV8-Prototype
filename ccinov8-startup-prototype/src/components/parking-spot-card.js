@@ -15,7 +15,7 @@ const ParkingSpotCard = (props) => {
             <h4>{location}</h4>
             <small>
                 <FontAwesomeIcon icon={faPesoSign} className="fa fa-md mr-2" />
-                {price} php/hr
+                {price} php
             </small>
             <br />
             <div className="d-flex justify-content-between">
