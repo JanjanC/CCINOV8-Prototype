@@ -5,7 +5,7 @@ export default async (req, res) => {
         case 'GET':
             try {
                 const result = await executeQuery({
-                    query: 'SELECT * FROM parking',
+                    query: 'SELECT * FROM parking_info',
                 });
 
                 return res.status(200).json(result);
