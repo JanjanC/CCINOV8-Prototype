@@ -106,7 +106,5 @@ img {
 
 .filepond--root,
 .filepond--root .filepond--drop-label {
-    width: 30em;
-    /* width: 75vmin; */
-    /* height: auto; */
+    width: 25vmax;
 }

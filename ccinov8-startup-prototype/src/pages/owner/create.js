@@ -31,19 +31,19 @@ const ParkingCreate = () => {
                     onChange={setSchedule}
                 /> */}
             </div>
-            <div class="container h-100">
-                <div class="row h-100 justify-content-center align-items-center">
-                    <div class="rounded-box p-4">
-                        <h2 class="text-center py-4">PARKING SPACE INFORMATION</h2>
-                        <div class="row">
-                            <form class="col-6 my-auto">
-                                {/* <div class="form-group d-flex flex-row align-items-center">
-                                    <label class="control-label col-5" for="count">
+            <div className="container h-100">
+                <div className="row h-100 justify-content-center align-items-center">
+                    <div className="rounded-box p-4">
+                        <h2 className="text-center py-4">PARKING SPACE INFORMATION</h2>
+                        <div className="row">
+                            <form className="col-6 my-auto">
+                                {/* <div className="form-group d-flex flex-row align-items-center">
+                                    <label className="control-label col-4" htmlFor="count">
                                         No. of Parking Spaces:
                                     </label>
                                     <input
                                         type="number"
-                                        class="form-control"
+                                        className="form-control"
                                         name="number"
                                         placeholder="Number of Parking Spaces"
                                         value={parkingSpaceCount}
@@ -52,12 +52,12 @@ const ParkingCreate = () => {
                                     />
                                 </div> */}
 
-                                {/* <div class="form-group d-flex flex-row align-items-center">
-                                    <label class="control-label col-5" for="type">
+                                {/* <div className="form-group d-flex flex-row align-items-center">
+                                    <label className="control-label col-4" htmlFor="type">
                                         Nature of Parking Spaces:
                                     </label>
                                     <select
-                                        class="form-select form-control"
+                                        className="form-select form-control"
                                         name="type"
                                         onChange={(e) => setParkingNature(e.target.value)}
                                         defaultValue={parkingNature}
@@ -70,13 +70,13 @@ const ParkingCreate = () => {
                                     </select>
                                 </div> */}
 
-                                <div class="form-group d-flex flex-row align-items-center">
-                                    <label class="control-label col-5" for="location">
+                                <div className="form-group d-flex flex-row align-items-center">
+                                    <label className="control-label col-4" htmlFor="location">
                                         Complete Address:
                                     </label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control col-8"
                                         name="location"
                                         placeholder="Complete Address"
                                         value={location}
@@ -85,13 +85,13 @@ const ParkingCreate = () => {
                                     />
                                 </div>
 
-                                <div class="form-group d-flex flex-row align-items-center">
-                                    <label class="control-label col-5" for="description">
+                                <div className="form-group d-flex flex-row align-items-center">
+                                    <label className="control-label col-4" htmlFor="description">
                                         Description:
                                     </label>
                                     <input
                                         type="text"
-                                        class="form-control"
+                                        className="form-control col-8"
                                         name="description"
                                         placeholder="Description"
                                         value={description}
@@ -100,103 +100,111 @@ const ParkingCreate = () => {
                                     />
                                 </div>
 
-                                <div class="form-group d-flex flex-row align-items-center">
-                                    <label class="control-label col-5">Available Dates:</label>
-                                    <div className="form-check form-check-inline">
-                                        <input className="form-check-input" type="checkbox" id="sudayCheck" value="sunday" />
-                                        <label className="form-check-label" for="sudayCheck">
-                                            Su
-                                        </label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                        <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            id="mondayCheck"
-                                            value="monday"
-                                        />
-                                        <label className="form-check-label" for="mondayCheck">
-                                            Mo
-                                        </label>
-                                    </div>
-                                    <div className="form-check form-check-inline">
-                                        <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            id="tuesdayCheck"
-                                            value="tuesday"
-                                        />
-                                        <label className="form-check-label" for="tuesdayCheck">
-                                            Tu
-                                        </label>
-                                    </div>
+                                <div className="form-group d-flex flex-row align-items-center">
+                                    <label className="control-label col-4">Available Dates:</label>
 
-                                    <div className="form-check form-check-inline">
-                                        <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            id="wednesdayCheck"
-                                            value="wednesday"
-                                        />
-                                        <label className="form-check-label" for="wednesdayCheck">
-                                            We
-                                        </label>
-                                    </div>
+                                    <div className=" col-8">
+                                        <div className="form-check form-check-inline">
+                                            <input
+                                                className="form-check-input"
+                                                type="checkbox"
+                                                id="sundayCheck"
+                                                value="sunday"
+                                            />
+                                            <label className="form-check-label" htmlFor="sundayCheck">
+                                                Su
+                                            </label>
+                                        </div>
+                                        <div className="form-check form-check-inline">
+                                            <input
+                                                className="form-check-input"
+                                                type="checkbox"
+                                                id="mondayCheck"
+                                                value="monday"
+                                            />
+                                            <label className="form-check-label" htmlFor="mondayCheck">
+                                                Mo
+                                            </label>
+                                        </div>
+                                        <div className="form-check form-check-inline">
+                                            <input
+                                                className="form-check-input"
+                                                type="checkbox"
+                                                id="tuesdayCheck"
+                                                value="tuesday"
+                                            />
+                                            <label className="form-check-label" htmlFor="tuesdayCheck">
+                                                Tu
+                                            </label>
+                                        </div>
 
-                                    <div className="form-check form-check-inline">
-                                        <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            id="thursdayCheck"
-                                            value="thursday"
-                                        />
-                                        <label className="form-check-label" for="thursdayCheck">
-                                            Th
-                                        </label>
-                                    </div>
+                                        <div className="form-check form-check-inline">
+                                            <input
+                                                className="form-check-input"
+                                                type="checkbox"
+                                                id="wednesdayCheck"
+                                                value="wednesday"
+                                            />
+                                            <label className="form-check-label" htmlFor="wednesdayCheck">
+                                                We
+                                            </label>
+                                        </div>
 
-                                    <div className="form-check form-check-inline">
-                                        <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            id="fridayCheck"
-                                            value="friday"
-                                        />
-                                        <label className="form-check-label" for="fridayCheck">
-                                            Fr
-                                        </label>
-                                    </div>
+                                        <div className="form-check form-check-inline">
+                                            <input
+                                                className="form-check-input"
+                                                type="checkbox"
+                                                id="thursdayCheck"
+                                                value="thursday"
+                                            />
+                                            <label className="form-check-label" htmlFor="thursdayCheck">
+                                                Th
+                                            </label>
+                                        </div>
 
-                                    <div className="form-check form-check-inline">
-                                        <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            id="saturdayCheck"
-                                            value="saturday"
-                                        />
-                                        <label className="form-check-label" for="saturdayCheck">
-                                            Sa
-                                        </label>
+                                        <div className="form-check form-check-inline">
+                                            <input
+                                                className="form-check-input"
+                                                type="checkbox"
+                                                id="fridayCheck"
+                                                value="friday"
+                                            />
+                                            <label className="form-check-label" htmlFor="fridayCheck">
+                                                Fr
+                                            </label>
+                                        </div>
+
+                                        <div className="form-check form-check-inline">
+                                            <input
+                                                className="form-check-input"
+                                                type="checkbox"
+                                                id="saturdayCheck"
+                                                value="saturday"
+                                            />
+                                            <label className="form-check-label" htmlFor="saturdayCheck">
+                                                Sa
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
 
-                                {/* <div class="form-group d-flex flex-row align-items-center">
-                                    <label class="control-label col-5" for="time">
+                                {/* <div className="form-group d-flex flex-row align-items-center">
+                                    <label className="control-label col-4" htmlFor="time">
                                         Parking Time Availability:
                                     </label>
                                     <input
                                         type="time"
-                                        class="form-control"
+                                        className="form-control"
                                         name="time_start"
                                         placeholder="Price per Hour (in Php)"
                                         value={parkingTimeStart}
                                         required="required"
                                         onChange={(e) => setParkingTimeStart(e.target.value)}
                                     />
-                                    <span class="mx-1">to</span>
+                                    <span className="mx-1">to</span>
                                     <input
                                         type="time"
-                                        class="form-control"
+                                        className="form-control"
                                         name="time_end"
                                         placeholder="Price per Hour (in Php)"
                                         value={parkingTimeEnd}
@@ -205,13 +213,13 @@ const ParkingCreate = () => {
                                     />
                                 </div> */}
 
-                                <div class="form-group d-flex flex-row align-items-center">
-                                    <label class="control-label col-5" for="price">
-                                        Price per Hour<span class="text-danger">*</span>:{' '}
+                                <div className="form-group d-flex flex-row align-items-center">
+                                    <label className="control-label col-4" htmlFor="price">
+                                        Price per Hour<span className="text-danger">*</span>:{' '}
                                     </label>
                                     <input
                                         type="number"
-                                        class="form-control"
+                                        className="form-control"
                                         name="price"
                                         placeholder="Price per Hour (in Php)"
                                         value={rate}
@@ -220,26 +228,31 @@ const ParkingCreate = () => {
                                     />
                                 </div>
 
-                                <div class="form-group d-flex flex-row align-items-center">
-                                    <small class="text-danger">
+                                {/* <div className="form-group d-flex flex-row align-items-center">
+                                    <label className="control-label col-4"> Image </label>
+                                    <div className="col-12">
+                                        <FilePond allowMultiple={false} required={true} />
+                                    </div>
+                                </div> */}
+
+                                <div className="form-group d-flex flex-row align-items-center">
+                                    <small className="text-danger">
                                         *your total earnings on our platform will be subject to a 3% (TO CHANGE) commission
                                     </small>
                                 </div>
 
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block mb-2">
+                                <div className="form-group">
+                                    <button type="submit" className="btn btn-primary btn-block mb-2">
                                         CONTINUE
                                     </button>
                                 </div>
                             </form>
-                            <div class="col-6 mx-auto my-auto">
+                            <div className="col-6 mx-auto my-auto">
+                                <div className="d-flex flex-row align-items-center"></div>
+                                {/* <label>Image: </label> */}
+                                <FilePond allowMultiple={false} required={true} />
                                 {/* <img src="/images/parking-space-owners.png" /> */}
                                 {/* <div className="d-block w-100"> */}
-                                <FilePond
-                                    allowMultiple={false}
-                                    credits={('', '')}
-                                    // other FilePond options and configurations can be added here
-                                />
                                 {/* </div> */}
                             </div>
                         </div>
