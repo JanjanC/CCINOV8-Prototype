@@ -1,6 +1,15 @@
 import ParkingSpotCard from '@/components/parking-spot-card';
 
-export default function DriverSearch() {
+export const getServerSideProps = async () => {
+    const res = await fetch(process.env.BASE_URL + '/api/owner/parking');
+    const data = await res.json();
+    console.log(data);
+    return {
+        props: { parkings: data },
+    };
+};
+
+export default function DriverHome({ parkings }) {
     return (
         <>
             <div className="container h-100 mt-5">
@@ -8,27 +17,15 @@ export default function DriverSearch() {
                     <h1>Available Parking Spaces</h1>
                 </div>
                 <div className="row d-flex flex-wrap justify-content-around">
-                    <ParkingSpotCard
-                        thumbnail="\images\car-parking.png"
-                        location="Taft Avenue, Manila"
-                        price="50"
-                        duration_type="Short"
-                        availability="Available"
-                    ></ParkingSpotCard>
-                    <ParkingSpotCard
-                        thumbnail="\images\car-parking.png"
-                        location="Taft Avenue, Manila"
-                        price="50"
-                        duration_type="Short"
-                        availability="Available"
-                    ></ParkingSpotCard>
-                    <ParkingSpotCard
-                        thumbnail="\images\car-parking.png"
-                        location="Taft Avenue, Manila"
-                        price="50"
-                        duration_type="Short"
-                        availability="Available"
-                    ></ParkingSpotCard>
+                    {parkings.map((parking) => (
+                        <ParkingSpotCard
+                            thumbnail="\images\car-parking.png"
+                            location={parking.location}
+                            price={parking.price}
+                            duration_type="Short"
+                            availability="Available"
+                        ></ParkingSpotCard>
+                    ))}
                 </div>
             </div>
         </>
