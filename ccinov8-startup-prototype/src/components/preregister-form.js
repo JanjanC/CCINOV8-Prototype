@@ -16,21 +16,21 @@ const PreregisterForm = (props) => {
     const [email, setEmail] = useState('');
     const [contact, setContact] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const user = { name, birthdate, email, contact, type };
 
-        fetch('/api/preregister', {
+        const res = await fetch('/api/preregister', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user),
-        }).then((res) => {
-            if (res.ok) {
-                router.push('/success');
-            } else {
-                router.push('/error');
-            }
         });
+
+        if (res.ok) {
+            router.push('/success');
+        } else {
+            router.push('/error');
+        }
     };
 
     return (
