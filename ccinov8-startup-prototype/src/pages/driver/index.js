@@ -6,7 +6,7 @@ export const getServerSideProps = async () => {
     const data = await res.json();
 
     for (var idx in data) {
-        let id = data[idx].user_id + data[idx].location + data[idx].time + data[idx].time_start + data[idx].time_end;
+        let id = data[idx].user_id + data[idx].address + data[idx].time + data[idx].time_start + data[idx].time_end;
         id = Crypto.createHash('sha256', process.env.SESSION_SECRET).update(id).digest('hex');
         data[idx].id = id;
     }
@@ -29,7 +29,7 @@ export default function DriverHome({ parkings }) {
                             key={parking.id}
                             id={parking.id}
                             thumbnail="\images\car-parking.png"
-                            location={parking.address}
+                            address={parking.address}
                             price={parking.price}
                             duration_type="Short"
                             availability="Available"
