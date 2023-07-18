@@ -3,7 +3,7 @@ import ParkingSpotCard from '@/components/parking-spot-card';
 export const getServerSideProps = async () => {
     const res = await fetch(process.env.BASE_URL + '/api/owner/parking');
     const data = await res.json();
-    console.log(data);
+
     return {
         props: { parkings: data },
     };
