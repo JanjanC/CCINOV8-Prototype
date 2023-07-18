@@ -20,7 +20,7 @@ export default function DriverHome({ parkings }) {
                     {parkings.map((parking) => (
                         <ParkingSpotCard
                             thumbnail="\images\car-parking.png"
-                            location={parking.location}
+                            location={parking.address}
                             price={parking.price}
                             duration_type="Short"
                             availability="Available"

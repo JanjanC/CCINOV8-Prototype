@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
+import ParkingSpotCard from '@/components/parking-spot-card';
 
 export const getServerSideProps = async () => {
     const res = await fetch(process.env.BASE_URL + '/api/owner/parking');
     const data = await res.json();
-
     return {
         props: { parkings: data },
     };
@@ -24,23 +24,21 @@ const OwnerHome = ({ parkings }) => {
                     <h3>Charlie has booked your parking - EGI Taft Towers</h3>
                 </ul>
             </div> */}
-
-            <div className="row">
-                {parkings.map((parking) => (
-                    <div className="card mb-4">
-                        <Image
-                            className="card-img-top img-fluid"
-                            src={'/images/drivers.png'}
-                            width={320}
-                            height={180}
-                            alt="Card image cap"
-                        ></Image>
-                        <div className="card-body">
-                            <h4 className="card-title">{parking.name}</h4>
-                            <p className="card-text">Occupied</p>
-                        </div>
-                    </div>
-                ))}
+            <div className="container h-100 mt-5">
+                <div className="row justify-content-center py-5">
+                    <h1>My Parking Spaces</h1>
+                </div>
+                <div className="row d-flex flex-wrap justify-content-around">
+                    {parkings.map((parking) => (
+                        <ParkingSpotCard
+                            thumbnail="\images\car-parking.png"
+                            location={parking.address}
+                            price={parking.price}
+                            duration_type="Short"
+                            availability="Available"
+                        ></ParkingSpotCard>
+                    ))}
+                </div>
             </div>
         </>
     );
