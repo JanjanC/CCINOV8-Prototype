@@ -115,8 +115,8 @@ app.get('/signup/rentee/parking', function (req, res) {
         console.log(results);
     });
 
-    const percents = [3, 5, 7];
-    let index = parseInt(req.session.user_id.slice(-2), 16) % 3;
+    const percents = [5, 7];
+    let index = parseInt(req.session.user_id.slice(-2), 16) % 2;
 
     query = 'INSERT INTO experiment_info (user_id, ip_address, price) VALUES (?, ?, ?)';
     params = [req.session.user_id, req.clientIp, percents[index]];
