@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { FilePond, registerPlugin } from 'react-filepond';
 import 'filepond/dist/filepond.min.css';
+import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
-registerPlugin(FilePondPluginImagePreview);
+
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 import ScheduleSelector from 'react-schedule-selector';
 import Link from 'next/link';
 import TimeRange from '@/components/time-range';
@@ -18,6 +20,8 @@ const ParkingCreate = () => {
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
     const [rate, setRate] = useState('');
+
+    const [image, setImage] = useState(null);
 
     const [sundayTimeStart, setSundayTimeStart] = useState('');
     const [sundayTimeEnd, setSundayTimeEnd] = useState('');
@@ -34,6 +38,28 @@ const ParkingCreate = () => {
     const [saturdayTimeStart, setSaturdayTimeStart] = useState('');
     const [saturdayTimeEnd, setSaturdayTimeEnd] = useState('');
 
+    const handleUpload = (f) => {
+        if (f.length == 0) return;
+        setImage(f[0].file);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const parking = { location, description, rate, image };
+        console.log('parking', parking);
+        const res = await fetch('/api/owner/parking', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(parking),
+        });
+
+        // if (res.ok) {
+        //     router.push('/success');
+        // } else {
+        //     router.push('/error');
+        // }
+    };
+
     return (
         <>
             <div className="container ">
@@ -41,7 +67,7 @@ const ParkingCreate = () => {
                     <div className="rounded-box p-4">
                         <h2 className="text-center py-4">PARKING SPACE INFORMATION</h2>
 
-                        <form>
+                        <form onSubmit={handleSubmit} encType="multipart/form-data">
                             <div className="form-group d-flex flex-row align-items-center">
                                 <label className="control-label col-4" htmlFor="location">
                                     Complete Address:
@@ -52,7 +78,6 @@ const ParkingCreate = () => {
                                     name="location"
                                     placeholder="Complete Address"
                                     value={location}
-                                    required="required"
                                     onChange={(e) => setLocation(e.target.value)}
                                 />
                             </div>
@@ -67,7 +92,6 @@ const ParkingCreate = () => {
                                     name="description"
                                     placeholder="Description"
                                     value={description}
-                                    required="required"
                                     onChange={(e) => setDescription(e.target.value)}
                                 />
                             </div>
@@ -75,7 +99,12 @@ const ParkingCreate = () => {
                             <div className="form-group d-flex flex-row align-items-center">
                                 <label className="control-label col-4"> Image: </label>
                                 <div className="col-8">
-                                    <FilePond allowMultiple={false} required={true} />
+                                    <FilePond
+                                        allowMultiple={false}
+                                        required={true}
+                                        name="image"
+                                        onupdatefiles={handleUpload}
+                                    />
                                 </div>
                             </div>
 
@@ -168,7 +197,6 @@ const ParkingCreate = () => {
                                     name="price"
                                     placeholder="Price per Hour (in Php)"
                                     value={rate}
-                                    required="required"
                                     onChange={(e) => setRate(e.target.value)}
                                 />
                             </div>
