@@ -15,8 +15,8 @@ export default function DriverSearch() {
                 <div className="row justify-content-center align-items-center">
                     <div className="rounded-box p-4">
                         <div className="row">
-                            <div className="col-6 d-flex flex-column">
-                                <img src="/images/sample-map.png" className="p-3" />
+                            <div className="col">
+                                <img src="/images/google-maps.png" className="p-3" />
                                 <div className="row p-3">
                                     <div className="col-8 border-right">
                                         <form className="p-2 d-flex flex-column">
@@ -58,9 +58,9 @@ export default function DriverSearch() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-6">
+                            {/* <div className="col-6">
                                 <img src="/images/parking-space-owners.png" />
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
