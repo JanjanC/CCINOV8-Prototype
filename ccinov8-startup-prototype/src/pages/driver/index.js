@@ -1,4 +1,6 @@
 import ParkingSpotCard from '@/components/parking-spot-card';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPesoSign, faClock, faStar } from '@fortawesome/free-solid-svg-icons';
 import Crypto from 'crypto';
 
 export const getServerSideProps = async () => {
@@ -19,11 +21,41 @@ export const getServerSideProps = async () => {
 export default function DriverHome({ parkings }) {
     return (
         <>
-            <div className="container h-100 mt-5">
-                <div className="row justify-content-center py-5">
-                    <h1>Available Parking Spaces</h1>
+            <div className="container h-100 pb-5">
+                <div className="row d-flex flex-row align-items-center justify-content-center py-4">
+                    <div className="col-6">
+                        <form>
+                            <div className="form-group d-flex flex-row align-items-center">
+                                <i className="fa fa-lg fa-search mr-4"></i>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    name="name"
+                                    placeholder="Where do you need to park?"
+                                    required="required"
+                                />
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div className="row d-flex flex-wrap justify-content-around">
+                <div className="row justify-content-center">
+                    <img src="/images/google-maps.png" />
+                </div>
+                <div className="row d-flex justify-content-end pt-5">
+                    <h4>
+                        SORT BY:
+                        <a href="#">
+                            <FontAwesomeIcon icon={faPesoSign} className="fa fa-md ml-3" />
+                        </a>
+                        <a href="#">
+                            <FontAwesomeIcon icon={faClock} className="fa fa-md ml-3" />
+                        </a>
+                        <a href="#">
+                            <FontAwesomeIcon icon={faStar} className="fa fa-md ml-3" />
+                        </a>
+                    </h4>
+                </div>
+                <div className="row d-flex flex-wrap justify-content-start">
                     {parkings.map((parking) => (
                         <ParkingSpotCard
                             key={parking.id}

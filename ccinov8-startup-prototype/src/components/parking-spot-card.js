@@ -11,26 +11,30 @@ const ParkingSpotCard = (props) => {
     const availability = props.availability;
 
     return (
-        <Link
-            className="parking-spot-card col-3 rounded-box p-4 mx-2 my-4"
-            key={id}
-            href={{ pathname: `/driver/${id}`, query: { data: JSON.stringify(props) } }}
-        >
-            <img src={thumbnail} />
-            <h4>{address}</h4>
-            <small>
-                <FontAwesomeIcon icon={faPesoSign} className="fa fa-md mr-2" />
-                {price} php
-            </small>
-            <br />
-            <div className="d-flex justify-content-between">
-                <small>
-                    <FontAwesomeIcon icon={faClock} className="fa fa-md mr-2" />
-                    {duration_type} Term
-                </small>
-                <small>{availability}</small>
-            </div>
-        </Link>
+        <div className="col-3 my-4 d-flex align-items-center">
+            <Link
+                className="parking-spot-card text-truncate inline-block rounded-box"
+                key={id}
+                href={{ pathname: `/driver/${id}`, query: { data: JSON.stringify(props) } }}
+            >
+                <div className="p-4">
+                    <img src={thumbnail} />
+                    <h5>{address}</h5>
+                    <small>
+                        <FontAwesomeIcon icon={faPesoSign} className="fa fa-md mr-2" />
+                        {price} php
+                    </small>
+                    <br />
+                    <div className="d-flex justify-content-between">
+                        <small>
+                            <FontAwesomeIcon icon={faClock} className="fa fa-md mr-2" />
+                            {duration_type} Term
+                        </small>
+                        <small>{availability}</small>
+                    </div>
+                </div>
+            </Link>
+        </div>
     );
 };
 export default ParkingSpotCard;
