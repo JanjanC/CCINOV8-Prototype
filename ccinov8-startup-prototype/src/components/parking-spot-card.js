@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 const ParkingSpotCard = (props) => {
     const id = props.id;
+    const url = props.url;
     const thumbnail = props.thumbnail;
     const address = props.address;
     const price = props.price;
@@ -15,7 +16,7 @@ const ParkingSpotCard = (props) => {
             <Link
                 className="parking-spot-card text-truncate inline-block rounded-box"
                 key={id}
-                href={{ pathname: `/driver/${id}`, query: { data: JSON.stringify(props) } }}
+                href={{ pathname: `/driver/${url}`, query: { data: JSON.stringify(props) } }}
             >
                 <div className="p-4">
                     <img src={thumbnail} />

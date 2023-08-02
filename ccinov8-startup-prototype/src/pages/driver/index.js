@@ -1,16 +1,17 @@
 import ParkingSpotCard from '@/components/parking-spot-card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPesoSign, faClock, faStar } from '@fortawesome/free-solid-svg-icons';
-import Crypto from 'crypto';
+import crypto from 'crypto';
 
 export const getServerSideProps = async () => {
     const res = await fetch(process.env.BASE_URL + '/api/owner/parking');
     const data = await res.json();
 
     for (var idx in data) {
-        let id = data[idx].user_id + data[idx].address + data[idx].time + data[idx].time_start + data[idx].time_end;
-        id = Crypto.createHash('sha256', process.env.SESSION_SECRET).update(id).digest('hex');
-        data[idx].id = id;
+        data[idx].url = crypto
+            .createHash('sha256', process.env.SESSION_SECRET)
+            .update(data[idx].id.toString())
+            .digest('hex');
     }
 
     return {
@@ -60,6 +61,7 @@ export default function DriverHome({ parkings }) {
                         <ParkingSpotCard
                             key={parking.id}
                             id={parking.id}
+                            url={parking.url}
                             thumbnail="\images\car-parking.png"
                             address={parking.address}
                             price={parking.price}
