@@ -4,6 +4,11 @@ export default function ParkingSpace() {
     const router = useRouter();
     const data = router.query;
     const parking = JSON.parse(data.data);
+
+    var date_start_formatted = parking.date_start.slice(0, 10);
+    var date_end_formatted = parking.date_end.slice(0, 10);
+
+    //TODO: Remove this after
     console.log(parking);
     return (
         <>
@@ -15,13 +20,15 @@ export default function ParkingSpace() {
                             <img src={parking.thumbnail} />
                         </div>
                         <div className="col-7 p-4">
-                            <h4>Availability: {parking.availability}</h4>
+                            <h4>
+                                Availability: {date_start_formatted} to {date_end_formatted}
+                            </h4>
                             <h4>Duration: {parking.duration_type} Term</h4>
                             <h4>Price: {parking.price}php/hr</h4>
                             <br />
                             <br />
                             <h5>
-                                Date: <input type="date"></input>
+                                Date: <input type="date" min={date_start_formatted} max={date_end_formatted}></input>
                             </h5>
                             <div className="row">
                                 <div className="col">

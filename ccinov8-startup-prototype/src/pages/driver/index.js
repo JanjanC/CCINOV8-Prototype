@@ -65,6 +65,8 @@ export default function DriverHome({ parkings }) {
                             thumbnail="\images\car-parking.png"
                             address={parking.address}
                             price={parking.price}
+                            date_start={parking.date_start}
+                            date_end={parking.date_end}
                             duration_type="Short"
                             availability="Available"
                         ></ParkingSpotCard>
