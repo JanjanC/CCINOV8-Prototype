@@ -9,6 +9,7 @@ registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
 import ScheduleSelector from 'react-schedule-selector';
 import Link from 'next/link';
 import TimeRange from '@/components/time-range';
+
 const ParkingCreate = () => {
     // const [schedule, setSchedule] = useState([]);
     // const handleChange = (newSchedule) => {
@@ -37,10 +38,19 @@ const ParkingCreate = () => {
             };
             reader.readAsDataURL(file);
         }
+
+        // try {
+        //     const file = e.target.files[0];
+        //     const base64Image = await imageToBase64(file);
+        //     setImage(base64Image);
+        // } catch (error) {
+        //     console.error(error);
+        // }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(image);
         const parking = { location, description, image, start, end, rate };
 
         const res = await fetch('/api/owner/parking', {
@@ -49,11 +59,11 @@ const ParkingCreate = () => {
             body: JSON.stringify(parking),
         });
 
-        // if (res.ok) {
-        //     router.push('/success');
-        // } else {
-        //     router.push('/error');
-        // }
+        if (res.ok) {
+            router.push('/owner');
+        } else {
+            router.push('/error');
+        }
     };
 
     return (

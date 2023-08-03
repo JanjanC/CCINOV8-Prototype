@@ -13,17 +13,6 @@ export const getServerSideProps = async () => {
 const OwnerHome = ({ parkings }) => {
     return (
         <>
-            {/* <h1>Welcome Back Owner!</h1> */}
-
-            {/* <div classNameName="Notif">
-                <h2>Notifications</h2>
-
-                <ul>
-                    <h3>Bob has paid for this month's due - Taft Avenue</h3>
-                    <h3>Alice has booked your parking - Pedro Gil</h3>
-                    <h3>Charlie has booked your parking - EGI Taft Towers</h3>
-                </ul>
-            </div> */}
             <div className="container h-100 mt-5">
                 <div className="row justify-content-center py-5">
                     <h1>My Parking Spaces</h1>
@@ -31,9 +20,10 @@ const OwnerHome = ({ parkings }) => {
                 <div className="row d-flex flex-wrap justify-content-around">
                     {parkings.map((parking) => (
                         <ParkingSpotCard
-                            thumbnail="\images\car-parking.png"
+                            id={parking.parking_id}
+                            thumbnail={parking.image}
                             location={parking.address}
-                            price={parking.price}
+                            price={parking.rate}
                             duration_type="Short"
                             availability="Available"
                         ></ParkingSpotCard>
