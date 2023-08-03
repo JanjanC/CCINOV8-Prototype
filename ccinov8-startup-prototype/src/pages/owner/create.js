@@ -19,22 +19,30 @@ const ParkingCreate = () => {
 
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
-    const [rate, setRate] = useState('');
 
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState('');
 
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
 
-    const handleUpload = (f) => {
-        if (f.length == 0) return;
-        setImage(f[0].file);
+    const [rate, setRate] = useState('');
+
+    const handleImage = async (e) => {
+        const file = e.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImage(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const parking = { location, description, rate, image };
-        console.log('parking', parking);
+        const parking = { location, description, image, start, end, rate };
+
         const res = await fetch('/api/owner/parking', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -55,7 +63,7 @@ const ParkingCreate = () => {
                     <div className="rounded-box p-4">
                         <h2 className="text-center py-4">PARKING SPACE INFORMATION</h2>
 
-                        <form onSubmit={handleSubmit} encType="multipart/form-data">
+                        <form onSubmit={handleSubmit}>
                             <div className="form-group d-flex flex-row align-items-center">
                                 <label className="control-label col-4" htmlFor="location">
                                     Complete Address:
@@ -86,14 +94,15 @@ const ParkingCreate = () => {
 
                             <div className="form-group d-flex flex-row align-items-center">
                                 <label className="control-label col-4"> Image: </label>
-                                <div className="col-8">
+                                {/* <div className="col-8">
                                     <FilePond
                                         allowMultiple={false}
                                         required={true}
                                         name="image"
                                         onupdatefiles={handleUpload}
                                     />
-                                </div>
+                                </div> */}
+                                <input type="file" onChange={handleImage} />
                             </div>
 
                             <div className="form-group d-flex flex-row align-items-center">
@@ -103,7 +112,7 @@ const ParkingCreate = () => {
                                     className="form-control"
                                     name="time_start"
                                     value={start}
-                                    onChange={(e) => props.setStart(e.target.value)}
+                                    onChange={(e) => setStart(e.target.value)}
                                 />
                                 <span className="mx-1">to</span>
                                 <input
@@ -111,7 +120,7 @@ const ParkingCreate = () => {
                                     className="form-control"
                                     name="time_end"
                                     value={end}
-                                    onChange={(e) => props.setEnd(e.target.value)}
+                                    onChange={(e) => setEnd(e.target.value)}
                                 />
                             </div>
 
