@@ -23,20 +23,8 @@ const ParkingCreate = () => {
 
     const [image, setImage] = useState(null);
 
-    const [sundayTimeStart, setSundayTimeStart] = useState('');
-    const [sundayTimeEnd, setSundayTimeEnd] = useState('');
-    const [mondayTimeStart, setMondayTimeStart] = useState('');
-    const [mondayTimeEnd, setMondayTimeEnd] = useState('');
-    const [tuesdayTimeStart, setTuesdayTimeStart] = useState('');
-    const [tuesdayTimeEnd, setTuesdayTimeEnd] = useState('');
-    const [wednesdayTimeStart, setWednesdayTimeStart] = useState('');
-    const [wednesdayTimeEnd, setWednesdayTimeEnd] = useState('');
-    const [thursdayTimeStart, setThursdayTimeStart] = useState('');
-    const [thursdayTimeEnd, setThursdayTimeEnd] = useState('');
-    const [fridayTimeStart, setFridayTimeStart] = useState('');
-    const [fridayTimeEnd, setFridayTimeEnd] = useState('');
-    const [saturdayTimeStart, setSaturdayTimeStart] = useState('');
-    const [saturdayTimeEnd, setSaturdayTimeEnd] = useState('');
+    const [start, setStart] = useState('');
+    const [end, setEnd] = useState('');
 
     const handleUpload = (f) => {
         if (f.length == 0) return;
@@ -108,83 +96,23 @@ const ParkingCreate = () => {
                                 </div>
                             </div>
 
-                            <label className="control-label col-12">Parking Availability:</label>
                             <div className="form-group d-flex flex-row align-items-center">
-                                <div className=" col-12">
-                                    <TimeRange
-                                        day={'Sun'}
-                                        timeStart={sundayTimeStart}
-                                        setTimeStart={setSundayTimeStart}
-                                        timeEnd={sundayTimeEnd}
-                                        setTimeEnd={setSundayTimeEnd}
-                                    />
-                                </div>
-                            </div>
-                            <div className="form-group d-flex flex-row align-items-center">
-                                <div className=" col-12">
-                                    <TimeRange
-                                        day={'Mon'}
-                                        timeStart={mondayTimeStart}
-                                        setTimeStart={setMondayTimeStart}
-                                        timeEnd={mondayTimeEnd}
-                                        setTimeEnd={setMondayTimeEnd}
-                                    />
-                                </div>
-                            </div>
-                            <div className="form-group d-flex flex-row align-items-center">
-                                <div className=" col-12">
-                                    <TimeRange
-                                        day={'Tue'}
-                                        timeStart={tuesdayTimeStart}
-                                        setTimeStart={setTuesdayTimeStart}
-                                        timeEnd={tuesdayTimeEnd}
-                                        setTimeEnd={setTuesdayTimeEnd}
-                                    />
-                                </div>
-                            </div>
-                            <div className="form-group d-flex flex-row align-items-center">
-                                <div className=" col-12">
-                                    <TimeRange
-                                        day={'Wed'}
-                                        timeStart={wednesdayTimeStart}
-                                        setTimeStart={setWednesdayTimeStart}
-                                        timeEnd={wednesdayTimeEnd}
-                                        setTimeEnd={setWednesdayTimeEnd}
-                                    />
-                                </div>
-                            </div>
-                            <div className="form-group d-flex flex-row align-items-center">
-                                <div className=" col-12">
-                                    <TimeRange
-                                        day={'Thu'}
-                                        timeStart={thursdayTimeStart}
-                                        setTimeStart={setThursdayTimeStart}
-                                        timeEnd={thursdayTimeEnd}
-                                        setTimeEnd={setThursdayTimeEnd}
-                                    />
-                                </div>
-                            </div>
-                            <div className="form-group d-flex flex-row align-items-center">
-                                <div className=" col-12">
-                                    <TimeRange
-                                        day={'Fri'}
-                                        timeStart={fridayTimeStart}
-                                        setTimeStart={setFridayTimeStart}
-                                        timeEnd={fridayTimeEnd}
-                                        setTimeEnd={setFridayTimeEnd}
-                                    />
-                                </div>
-                            </div>
-                            <div className="form-group d-flex flex-row align-items-center">
-                                <div className=" col-12">
-                                    <TimeRange
-                                        day={'Sat'}
-                                        timeStart={saturdayTimeStart}
-                                        setTimeStart={setSaturdayTimeStart}
-                                        timeEnd={saturdayTimeEnd}
-                                        setTimeEnd={setSaturdayTimeEnd}
-                                    />
-                                </div>
+                                <label className="control-label col-4">Parking Availability:</label>
+                                <input
+                                    type="time"
+                                    className="form-control"
+                                    name="time_start"
+                                    value={start}
+                                    onChange={(e) => props.setStart(e.target.value)}
+                                />
+                                <span className="mx-1">to</span>
+                                <input
+                                    type="time"
+                                    className="form-control"
+                                    name="time_end"
+                                    value={end}
+                                    onChange={(e) => props.setEnd(e.target.value)}
+                                />
                             </div>
 
                             <div className="form-group d-flex flex-row align-items-center">
