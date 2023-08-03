@@ -3,9 +3,9 @@ import { faPesoSign, faClock } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 
 const ParkingSpotCard = (props) => {
-    const id = props.parking_id;
+    const user_type = props.user_type;
+    const id = props.id;
     const url = props.url;
-    console.log(props.thumbnail);
     const thumbnail = props.thumbnail;
     const address = props.address;
     const rate = props.rate;
@@ -17,8 +17,7 @@ const ParkingSpotCard = (props) => {
             <Link
                 className="parking-spot-card text-truncate inline-block rounded-box"
                 key={id}
-                href={`/driver/${id}`}
-                // href={{ pathname: `/driver/${id}`, query: { data: JSON.stringify(props) } }}
+                href={{ pathname: `/${user_type}/${id}`, query: { data: JSON.stringify(props) } }}
             >
                 <div className="p-4">
                     <img src={thumbnail} />

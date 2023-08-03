@@ -20,10 +20,13 @@ const OwnerHome = ({ parkings }) => {
                 <div className="row d-flex flex-wrap justify-content-around">
                     {parkings.map((parking) => (
                         <ParkingSpotCard
+                            user_type="owner"
                             id={parking.parking_id}
                             thumbnail={parking.image}
                             location={parking.address}
-                            price={parking.rate}
+                            rate={parking.rate}
+                            time_start={parking.time_start}
+                            time_end={parking.time_end}
                             duration_type="Short"
                             availability="Available"
                         ></ParkingSpotCard>
