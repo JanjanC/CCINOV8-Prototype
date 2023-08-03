@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPesoSign, faClock } from '@fortawesome/free-solid-svg-icons';
 
 export default function ParkingSpace() {
     const router = useRouter();
     const data = router.query;
     const parking = JSON.parse(data.data);
-
-    var date_start_formatted = parking.date_start.slice(0, 10);
-    var date_end_formatted = parking.date_end.slice(0, 10);
+    const today = new Date().toLocaleDateString('sv');
 
     //TODO: Remove this after
     console.log(parking);
@@ -20,15 +20,21 @@ export default function ParkingSpace() {
                             <img src={parking.thumbnail} />
                         </div>
                         <div className="col-7 p-4">
-                            <h4>
-                                Availability: {date_start_formatted} to {date_end_formatted}
-                            </h4>
-                            <h4>Duration: {parking.duration_type} Term</h4>
-                            <h4>Price: {parking.price}php/hr</h4>
-                            <br />
+                            <div className="border rounded p-3">
+                                <p>{parking.description}</p>
+                            </div>
                             <br />
                             <h5>
-                                Date: <input type="date" min={date_start_formatted} max={date_end_formatted}></input>
+                                Availability: <FontAwesomeIcon icon={faClock} className="fa fa-md mr-1" />{' '}
+                                {parking.time_start} - {parking.time_end}
+                            </h5>
+                            <h5>
+                                Rate: <FontAwesomeIcon icon={faPesoSign} className="fa fa-md mr-1" />
+                                {parking.rate}/hr
+                            </h5>
+                            <br />
+                            <h5>
+                                Time: <input type="date" min={today}></input>
                             </h5>
                             <div className="row">
                                 <div className="col">

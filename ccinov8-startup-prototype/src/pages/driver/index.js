@@ -6,11 +6,11 @@ import crypto from 'crypto';
 export const getServerSideProps = async () => {
     const res = await fetch(process.env.BASE_URL + '/api/owner/parking');
     const data = await res.json();
-
+    console.log(data);
     for (var idx in data) {
         data[idx].url = crypto
             .createHash('sha256', process.env.SESSION_SECRET)
-            .update(data[idx].id.toString())
+            .update(data[idx].parking_id.toString())
             .digest('hex');
     }
 
@@ -59,16 +59,15 @@ export default function DriverHome({ parkings }) {
                 <div className="row d-flex flex-wrap justify-content-start">
                     {parkings.map((parking) => (
                         <ParkingSpotCard
-                            key={parking.id}
-                            id={parking.id}
+                            key={parking.parking_id}
+                            id={parking.parking_id}
                             url={parking.url}
                             thumbnail="\images\car-parking.png"
                             address={parking.address}
-                            price={parking.price}
-                            date_start={parking.date_start}
-                            date_end={parking.date_end}
-                            duration_type="Short"
-                            availability="Available"
+                            rate={parking.rate}
+                            time_start={parking.time_start}
+                            time_end={parking.time_end}
+                            description={parking.description}
                         ></ParkingSpotCard>
                     ))}
                 </div>
