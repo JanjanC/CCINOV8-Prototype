@@ -1,5 +1,3 @@
-import multer from 'multer';
-import fs from 'fs';
 import executeQuery from '../../../lib/db';
 
 export default async (req, res) => {

@@ -17,7 +17,8 @@ const ParkingSpotCard = (props) => {
             <Link
                 className="parking-spot-card text-truncate inline-block rounded-box"
                 key={id}
-                href={{ pathname: `/${user_type}/${id}`, query: { data: JSON.stringify(props) } }}
+                // href={{ pathname: `/${user_type}/${id}`, query: { data: JSON.stringify(props) } }}
+                href={`/${user_type}/${id}`}
             >
                 <div className="p-4">
                     <img src={thumbnail} />
