@@ -59,6 +59,7 @@ export default function DriverHome({ parkings }) {
                 <div className="row d-flex flex-wrap justify-content-start">
                     {parkings.map((parking) => (
                         <ParkingSpotCard
+                            user_type="driver"
                             key={parking.parking_id}
                             id={parking.parking_id}
                             url={parking.url}

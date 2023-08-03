@@ -1,15 +1,19 @@
-import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPesoSign, faClock } from '@fortawesome/free-solid-svg-icons';
 
-export default function ParkingSpace() {
-    const router = useRouter();
-    const data = router.query;
-    const parking = JSON.parse(data.data);
+export const getServerSideProps = async (context) => {
+    const id = context.params['parking-space'];
+
+    const res = await fetch(process.env.BASE_URL + `/api/parking/info?id=${id}`);
+    const parking = await res.json();
+    return {
+        props: { parking: parking[0] },
+    };
+};
+
+export default function ParkingSpace({ parking }) {
     const today = new Date().toLocaleDateString('sv');
 
-    //TODO: Remove this after
-    console.log(parking.rate);
     return (
         <>
             <div className="container h-100">
@@ -17,7 +21,7 @@ export default function ParkingSpace() {
                     <h1 className="text-center border-bottom pb-4">{parking.address}</h1>
                     <div className="row mt-3">
                         <div className="col-5">
-                            <img src={parking.thumbnail} />
+                            <img src={parking.image} />
                         </div>
                         <div className="col-7 p-4">
                             <div className="border rounded p-3">
