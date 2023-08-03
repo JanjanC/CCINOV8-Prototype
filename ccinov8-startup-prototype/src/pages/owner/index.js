@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import ParkingSpotCard from '@/components/parking-spot-card';
 
 export const getServerSideProps = async () => {
-    const res = await fetch(process.env.BASE_URL + '/api/owner/parking');
+    const res = await fetch(process.env.BASE_URL + '/api/parking');
     const data = await res.json();
     return {
         props: { parkings: data },
@@ -24,6 +24,7 @@ const OwnerHome = ({ parkings }) => {
                             id={parking.parking_id}
                             thumbnail={parking.image}
                             location={parking.address}
+                            description={parking.description}
                             rate={parking.rate}
                             time_start={parking.time_start}
                             time_end={parking.time_end}

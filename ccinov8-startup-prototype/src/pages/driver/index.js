@@ -4,7 +4,7 @@ import { faPesoSign, faClock, faStar } from '@fortawesome/free-solid-svg-icons';
 import crypto from 'crypto';
 
 export const getServerSideProps = async () => {
-    const res = await fetch(process.env.BASE_URL + '/api/owner/parking');
+    const res = await fetch(process.env.BASE_URL + '/api/parking');
     const data = await res.json();
     console.log(data);
     for (var idx in data) {
