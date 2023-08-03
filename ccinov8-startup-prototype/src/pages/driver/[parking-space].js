@@ -13,7 +13,7 @@ export const getServerSideProps = async (context) => {
 
 export default function ParkingSpace({ parking }) {
     const today = new Date().toLocaleDateString('sv');
-
+    
     return (
         <>
             <div className="container h-100">

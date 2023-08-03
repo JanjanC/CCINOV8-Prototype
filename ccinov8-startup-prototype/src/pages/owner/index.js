@@ -14,6 +14,10 @@ const OwnerHome = ({ parkings }) => {
     return (
         <>
             <div className="container h-100 mt-5">
+                <a href="/owner/create" class="btn btn-block btn-primary">
+                    Register a New Parking Spot
+                </a>
+
                 <div className="row justify-content-center py-5">
                     <h1>My Parking Spaces</h1>
                 </div>
