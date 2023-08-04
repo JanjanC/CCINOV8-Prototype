@@ -151,7 +151,7 @@ const ParkingCreate = () => {
 
                             <div className="form-group d-flex flex-row align-items-center">
                                 <small className="text-danger">
-                                    *your total earnings on our platform will be subject to a 3% commission
+                                    *your total earnings on our platform will be subject to a 5% commission
                                 </small>
                             </div>
 
