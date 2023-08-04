@@ -42,8 +42,7 @@ export default function ParkingSpace({ parking }) {
         }
 
         if (is_conflict) {
-            // Add error message here
-            //console.log('Test');
+            alert('Booking slot unavailable. Please try again.');
         } else {
             const res = await fetch('/api/booking', {
                 method: 'POST',
