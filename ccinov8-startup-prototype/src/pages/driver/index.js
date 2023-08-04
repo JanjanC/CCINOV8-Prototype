@@ -61,7 +61,6 @@ export default function DriverHome({ parkings }) {
                         <ParkingSpotCard
                             user_type="driver"
                             key={parking.parking_id}
-                            user_type="driver"
                             id={parking.parking_id}
                             url={parking.url}
                             thumbnail="\images\car-parking.png"
