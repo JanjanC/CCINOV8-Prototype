@@ -90,6 +90,15 @@ const ParkingCreate = () => {
                             </div>
 
                             <div className="form-group d-flex flex-row align-items-center">
+                                <label className="control-label col-4" htmlFor="map">
+                                    Map:
+                                </label>
+                                <div className="col-8">
+                                    <img src="/images/owner_map.png" />
+                                </div>
+                            </div>
+
+                            <div className="form-group d-flex flex-row align-items-center">
                                 <label className="control-label col-4" htmlFor="description">
                                     Description:
                                 </label>
