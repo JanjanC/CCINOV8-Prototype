@@ -45,7 +45,8 @@ export default function ParkingSpace({ parking, bookings }) {
                             <table className="table">
                                 <thead>
                                     <tr>
-                                        <th>Renter</th>
+                                        <th>Renter ID</th>
+                                        <th>Contact</th>
                                         <th>Start</th>
                                         <th>End</th>
                                     </tr>
@@ -54,6 +55,7 @@ export default function ParkingSpace({ parking, bookings }) {
                                     {bookings.map((booking) => (
                                         <tr key={booking.datetime_start}>
                                             <td>{booking.user_id}</td>
+                                            <td>{'09238399267'}</td>
                                             <td>{booking.datetime_start}</td>
                                             <td>{booking.datetime_end}</td>
                                         </tr>

@@ -25,7 +25,6 @@ const OwnerHome = ({ parkings }) => {
                     {parkings.map((parking) => (
                         <ParkingSpotCard
                             user_type="owner"
-                            key={parking.parking_id}
                             id={parking.parking_id}
                             thumbnail="\images\car-parking.png"
                             address={parking.address}
