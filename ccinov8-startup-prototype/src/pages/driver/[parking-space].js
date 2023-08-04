@@ -32,24 +32,32 @@ export default function ParkingSpace({ parking }) {
         const data = await fetch_res.json();
 
         var is_conflict = false;
-
         for (var idx in data) {
             let item = data[idx];
-
-            if (item.parking_id == booking.parking_id && item.active == 1) {
+            if (item.parking_id == booking.parking_id) {
                 if (!(booking.datetime_start >= item.datetime_end && booking.datetime_end >= item.datetime_start)) {
-                    console.log('ITEM: ' + item.datetime_start + ' - ' + item.datetime_end);
-                    console.log('BOOKING: ' + booking.datetime_start + ' - ' + booking.datetime_end);
                     is_conflict = true;
                 }
             }
         }
 
         if (is_conflict) {
-            console.log('conflict spotted');
+            console.log('Test');
         } else {
             console.log('PASS');
         }
+
+        // const res = await fetch('/api/booking', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify(booking),
+        // });
+
+        // if (res.ok) {
+        //     router.push('/driver');
+        // } else {
+        //     router.push('/error');
+        // }
     };
 
     return (
@@ -79,6 +87,7 @@ export default function ParkingSpace({ parking }) {
                                 <h5>
                                     Date:{' '}
                                     <input
+                                        required
                                         name="date"
                                         type="date"
                                         min={today}
@@ -91,6 +100,7 @@ export default function ParkingSpace({ parking }) {
                                         <h5>
                                             Time in:{' '}
                                             <input
+                                                required
                                                 name="time_start"
                                                 type="time"
                                                 min={parking.time_start}
@@ -103,6 +113,7 @@ export default function ParkingSpace({ parking }) {
                                         <h5>
                                             Time out:{' '}
                                             <input
+                                                required
                                                 name="time_end"
                                                 type="time"
                                                 min={timeStart}
