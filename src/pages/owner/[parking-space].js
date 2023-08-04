@@ -42,6 +42,7 @@ export default function ParkingSpace({ parking, bookings }) {
                                 {parking.rate}/hr
                             </h5>
                             <br />
+                            <p>{'Total Earning: Php ' + 200 * bookings.length + '.00'}</p>
                             <table className="table">
                                 <thead>
                                     <tr>
@@ -49,6 +50,7 @@ export default function ParkingSpace({ parking, bookings }) {
                                         <th>Contact</th>
                                         <th>Start</th>
                                         <th>End</th>
+                                        <th>Earning</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,6 +60,7 @@ export default function ParkingSpace({ parking, bookings }) {
                                             <td>{'09238399267'}</td>
                                             <td>{booking.datetime_start}</td>
                                             <td>{booking.datetime_end}</td>
+                                            <td>{'Php 200.00'}</td>
                                         </tr>
                                     ))}
                                 </tbody>
