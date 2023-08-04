@@ -60,6 +60,7 @@ export default function DriverHome({ parkings }) {
                     {parkings.map((parking) => (
                         <ParkingSpotCard
                             key={parking.parking_id}
+                            user_type="driver"
                             id={parking.parking_id}
                             url={parking.url}
                             thumbnail="\images\car-parking.png"
