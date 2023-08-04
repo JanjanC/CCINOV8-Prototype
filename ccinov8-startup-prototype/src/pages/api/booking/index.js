@@ -6,7 +6,7 @@ export default async (req, res) => {
         case 'GET':
             try {
                 const result = await executeQuery({
-                    query: 'SELECT * FROM booking',
+                    query: 'SELECT * FROM booking WHERE datetime_end >= NOW();',
                 });
                 return res.status(200).json(result);
             } catch (error) {
@@ -16,8 +16,8 @@ export default async (req, res) => {
 
         case 'POST':
             const result = await executeQuery({
-                query: 'INSERT INTO booking (parking_id, user_id, datetime_start, datetime_end, active) VALUES (?, ?, ?, ?, ?)',
-                values: [req.body.parking_id, randomUUID(), req.body.datetime_start, req.body.datetime_end, req.body.active],
+                query: 'INSERT INTO booking (parking_id, user_id, datetime_start, datetime_end) VALUES (?, ?, ?, ?)',
+                values: [req.body.parking_id, randomUUID(), req.body.datetime_start, req.body.datetime_end],
             });
 
             if (result.affectedRows) {
