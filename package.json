@@ -1,22 +1,35 @@
 {
-  "name": "ccinov8-prototype",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "ccinov8-startup-prototype",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.2",
-    "dotenv": "^16.1.4",
-    "express": "^4.18.2",
-    "express-mysql-session": "^3.0.0",
-    "express-session": "^1.17.3",
-    "express-useragent": "^1.0.15",
-    "hbs": "^4.2.0",
-    "mysql2": "^3.3.4",
-    "request-ip": "^3.3.0"
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "bootstrap": "^4.6.2",
+    "crypto": "^1.0.1",
+    "eslint": "8.45.0",
+    "eslint-config-next": "13.4.10",
+    "filepond": "^4.30.4",
+    "filepond-plugin-image-exif-orientation": "^1.0.11",
+    "filepond-plugin-image-preview": "^4.6.11",
+    "fortawesome": "^0.0.1-security",
+    "jquery": "^3.7.0",
+    "multer": "^1.4.5-lts.1",
+    "next": "13.4.10",
+    "popper.js": "^1.16.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-filepond": "^7.1.2",
+    "react-schedule-selector": "^2.0.0",
+    "request-ip": "^3.3.0",
+    "serverless-mysql": "^1.5.5",
+    "styled-components": "^6.0.4"
   }
 }
