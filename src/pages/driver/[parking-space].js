@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPesoSign, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faPesoSign, faClock, faAddressBook } from '@fortawesome/free-solid-svg-icons';
 
 export const getServerSideProps = async (context) => {
     const id = context.params['parking-space'];
@@ -20,7 +20,7 @@ export default function ParkingSpace({ parking }) {
     const [date, setDate] = useState('');
     const [timeStart, setTimeStart] = useState('');
     const [timeEnd, setTimeEnd] = useState('');
-
+    var random_distance = Math.floor(Math.random() * 5000) + 100;
     const handleSubmit = async (e) => {
         e.preventDefault();
         const datetime_start = date + ' ' + timeStart + ':00';
@@ -72,6 +72,10 @@ export default function ParkingSpace({ parking }) {
                             <img src={parking.image} />
                         </div>
                         <div className="col-7 p-4">
+                            <div className="mb-2">
+                                <img src="/images/google-maps.png" />
+                                <h5 className="text-danger py-3">Distance: {random_distance}m away from you.</h5>
+                            </div>
                             <div className="border rounded p-3">
                                 <p>{parking.description}</p>
                             </div>
@@ -83,6 +87,10 @@ export default function ParkingSpace({ parking }) {
                             <h5>
                                 Rate: <FontAwesomeIcon icon={faPesoSign} className="fa fa-md mr-1" />
                                 {parking.rate}/hr
+                            </h5>
+                            <h5>
+                                Contact No: <FontAwesomeIcon icon={faAddressBook} className="fa fa-md mr-1" />09190572738 
+
                             </h5>
                             <br />
                             <form onSubmit={handleSubmit}>
