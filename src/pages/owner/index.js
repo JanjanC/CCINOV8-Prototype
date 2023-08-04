@@ -26,7 +26,7 @@ const OwnerHome = ({ parkings }) => {
                         <ParkingSpotCard
                             user_type="owner"
                             id={parking.parking_id}
-                            thumbnail={parking.image}
+                            thumbnail="\images\car-parking.png"
                             location={parking.address}
                             description={parking.description}
                             rate={parking.rate}
