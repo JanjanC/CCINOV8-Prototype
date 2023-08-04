@@ -5,7 +5,7 @@ export default async (req, res) => {
         case 'GET':
             try {
                 const result = await executeQuery({
-                    query: 'SELECT address, description, time_start, time_end, rate FROM parking',
+                    query: 'SELECT parking_id, address, description, time_start, time_end, rate FROM parking',
                 });
                 return res.status(200).json(result);
             } catch (error) {
