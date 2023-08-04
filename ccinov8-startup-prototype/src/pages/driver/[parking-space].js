@@ -42,22 +42,21 @@ export default function ParkingSpace({ parking }) {
         }
 
         if (is_conflict) {
-            console.log('Test');
+            // Add error message here
+            //console.log('Test');
         } else {
-            console.log('PASS');
+            const res = await fetch('/api/booking', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(booking),
+            });
+
+            if (res.ok) {
+                router.push('/driver');
+            } else {
+                router.push('/error');
+            }
         }
-
-        // const res = await fetch('/api/booking', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(booking),
-        // });
-
-        // if (res.ok) {
-        //     router.push('/driver');
-        // } else {
-        //     router.push('/error');
-        // }
     };
 
     return (
