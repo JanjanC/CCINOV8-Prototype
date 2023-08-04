@@ -27,16 +27,28 @@ export default function ParkingSpace({ parking }) {
         const datetime_end = date + ' ' + timeEnd + ':00';
         const booking = { parking_id, datetime_start, datetime_end, active };
 
-        const res = await fetch('/api/booking', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(booking),
-        });
+        // Call from the booking GET
+        const fetch_res = await fetch('/api/booking', { method: 'GET' });
+        const data = await fetch_res.json();
 
-        if (res.ok) {
-            router.push('/driver');
+        var is_conflict = false;
+
+        for (var idx in data) {
+            let item = data[idx];
+
+            if (item.parking_id == booking.parking_id && item.active == 1) {
+                if (!(booking.datetime_start >= item.datetime_end && booking.datetime_end >= item.datetime_start)) {
+                    console.log('ITEM: ' + item.datetime_start + ' - ' + item.datetime_end);
+                    console.log('BOOKING: ' + booking.datetime_start + ' - ' + booking.datetime_end);
+                    is_conflict = true;
+                }
+            }
+        }
+
+        if (is_conflict) {
+            console.log('conflict spotted');
         } else {
-            router.push('/error');
+            console.log('PASS');
         }
     };
 
