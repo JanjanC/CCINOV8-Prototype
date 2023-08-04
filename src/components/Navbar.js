@@ -20,8 +20,15 @@ const Navbar = () => {
                         {/* <Link className="nav-link" href="/#intro" data-toggle="modal" data-target="#signup-modal">
                             PREREGISTER
                         </Link> */}
-                        <Link className="nav-link" href="/#signup-owner">
-                            PREREGISTER
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" href="/driver">
+                            DRIVER
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" href="/owner">
+                            OWNER
                         </Link>
                     </li>
                 </ul>
