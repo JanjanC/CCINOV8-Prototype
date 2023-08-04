@@ -25,15 +25,14 @@ const OwnerHome = ({ parkings }) => {
                     {parkings.map((parking) => (
                         <ParkingSpotCard
                             user_type="owner"
+                            key={parking.parking_id}
                             id={parking.parking_id}
                             thumbnail="\images\car-parking.png"
-                            location={parking.address}
-                            description={parking.description}
+                            address={parking.address}
                             rate={parking.rate}
                             time_start={parking.time_start}
                             time_end={parking.time_end}
-                            duration_type="Short"
-                            availability="Available"
+                            description={parking.description}
                         ></ParkingSpotCard>
                     ))}
                 </div>
