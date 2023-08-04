@@ -89,7 +89,8 @@ export default function ParkingSpace({ parking }) {
                                 {parking.rate}/hr
                             </h5>
                             <h5>
-                                Contact No: <FontAwesomeIcon icon={faAddressBook} className="fa fa-md mr-1" />
+                                Contact No: <FontAwesomeIcon icon={faAddressBook} className="fa fa-md mr-1" />09190572738 
+
                             </h5>
                             <br />
                             <form onSubmit={handleSubmit}>
