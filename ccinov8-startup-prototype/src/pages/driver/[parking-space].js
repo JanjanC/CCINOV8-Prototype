@@ -35,7 +35,10 @@ export default function ParkingSpace({ parking }) {
         for (var idx in data) {
             let item = data[idx];
             if (item.parking_id == booking.parking_id) {
-                if (!(booking.datetime_start >= item.datetime_end && booking.datetime_end >= item.datetime_start)) {
+                if (
+                    !(booking.datetime_start >= item.datetime_end && booking.datetime_end >= item.datetime_start) ||
+                    item.user_id == booking.user_id
+                ) {
                     is_conflict = true;
                 }
             }
@@ -44,6 +47,7 @@ export default function ParkingSpace({ parking }) {
         if (is_conflict) {
             alert('Booking slot unavailable. Please try again.');
         } else {
+            alert('Booking successful! Redirecting to drivers page');
             const res = await fetch('/api/booking', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
