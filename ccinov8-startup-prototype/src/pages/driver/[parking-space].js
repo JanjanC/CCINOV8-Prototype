@@ -3,40 +3,41 @@ import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPesoSign, faClock } from '@fortawesome/free-solid-svg-icons';
 
-export default function ParkingSpace() {
-    const router = useRouter();
-    const data = router.query;
-    const parking = JSON.parse(data.data);
-    const today = new Date().toLocaleDateString('sv');
+export const getServerSideProps = async (context) => {
+    const id = context.params['parking-space'];
+    const res = await fetch(process.env.BASE_URL + `/api/parking/info?id=${id}`);
+    const parking = await res.json();
+    return {
+        props: { parking: parking[0] },
+    };
+};
 
-    const parking_id = parking.id;
+export default function ParkingSpace({ parking }) {
+    const router = useRouter();
+    const today = new Date().toLocaleDateString('sv');
+    const parking_id = parking.parking_id;
     const active = 1;
     const [date, setDate] = useState('');
     const [timeStart, setTimeStart] = useState('');
     const [timeEnd, setTimeEnd] = useState('');
 
-    //TODO: Remove this after
-    console.log(parking);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(date);
-        const datetime_start = date + timeStart;
-        const datetime_end = date + timeEnd;
-        console.log(datetime_start);
-        const parking = { parking_id, datetime_start, datetime_end, active };
-        //console.log(parking);
-        // const res = await fetch('/api/owner/parking', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(parking),
-        // });
+        const datetime_start = date + ' ' + timeStart + ':00';
+        const datetime_end = date + ' ' + timeEnd + ':00';
+        const booking = { parking_id, datetime_start, datetime_end, active };
 
-        // if (res.ok) {
-        //     router.push('/owner');
-        // } else {
-        //     router.push('/error');
-        // }
+        const res = await fetch('/api/booking', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(booking),
+        });
+
+        if (res.ok) {
+            router.push('/driver');
+        } else {
+            router.push('/error');
+        }
     };
 
     return (
@@ -46,7 +47,7 @@ export default function ParkingSpace() {
                     <h1 className="text-center border-bottom pb-4">{parking.address}</h1>
                     <div className="row mt-3">
                         <div className="col-5">
-                            <img src={parking.thumbnail} />
+                            <img src={parking.image} />
                         </div>
                         <div className="col-7 p-4">
                             <div className="border rounded p-3">
@@ -92,6 +93,7 @@ export default function ParkingSpace() {
                                             <input
                                                 name="time_end"
                                                 type="time"
+                                                min={timeStart}
                                                 max={parking.time_end}
                                                 value={timeEnd}
                                                 onChange={(e) => setTimeEnd(e.target.value)}

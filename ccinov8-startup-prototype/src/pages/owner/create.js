@@ -53,7 +53,7 @@ const ParkingCreate = () => {
         console.log(image);
         const parking = { location, description, image, start, end, rate };
 
-        const res = await fetch('/api/owner/parking', {
+        const res = await fetch('/api/parking', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(parking),

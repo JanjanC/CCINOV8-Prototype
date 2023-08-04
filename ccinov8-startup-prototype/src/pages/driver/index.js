@@ -4,7 +4,7 @@ import { faPesoSign, faClock, faStar } from '@fortawesome/free-solid-svg-icons';
 import crypto from 'crypto';
 
 export const getServerSideProps = async () => {
-    const res = await fetch(process.env.BASE_URL + '/api/owner/parking');
+    const res = await fetch(process.env.BASE_URL + '/api/parking');
     const data = await res.json();
     console.log(data);
     for (var idx in data) {
@@ -59,6 +59,7 @@ export default function DriverHome({ parkings }) {
                 <div className="row d-flex flex-wrap justify-content-start">
                     {parkings.map((parking) => (
                         <ParkingSpotCard
+                            user_type="driver"
                             key={parking.parking_id}
                             user_type="driver"
                             id={parking.parking_id}
