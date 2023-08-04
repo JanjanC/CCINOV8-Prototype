@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { FilePond, registerPlugin } from 'react-filepond';
 import 'filepond/dist/filepond.min.css';
 import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
@@ -16,7 +17,7 @@ const ParkingCreate = () => {
     //     this.setState({ schedule: newSchedule });
     // };
     // https://github.com/bibekg/react-schedule-selector
-    // const router = useRouter();
+    const router = useRouter();
 
     const [location, setLocation] = useState('');
     const [description, setDescription] = useState('');
